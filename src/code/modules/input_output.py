@@ -5,7 +5,7 @@ import os
 
 class input_func:
 
-
+    # Loading CSV or Excel files into a DataFrame
     def load_file(file_path: str, sheet_name: Optional[str] = None, skip_rows: Optional[int] = 0) -> pd.DataFrame:
         """
         Load a CSV or Excel file into a DataFrame.
@@ -24,7 +24,7 @@ class input_func:
         try:
             if file_extension == 'csv':
                 # Load CSV file
-                df = pd.read_csv(file_path, skiprows=skip_rows)
+                df = pd.read_csv(file_path, sep=';', skiprows=skip_rows)
             elif file_extension in ['xls', 'xlsx', 'xlsm']:
                 # Load Excel file
                 df = pd.read_excel(file_path, sheet_name=sheet_name, skiprows=skip_rows)
@@ -47,7 +47,7 @@ class input_func:
 
 class output_func:
 
-
+    # Saving in the same folder as the Python (py or ipynb) file using one of two popular Excel libraries
     def save_file(data: pd.DataFrame, name: str) -> None:
         """
         Saves a DataFrame to an Excel file using the preferred engine.
