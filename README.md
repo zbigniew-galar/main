@@ -12,7 +12,7 @@ venv\Scripts\activate.bat
 ``` powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
-Activate newly created environment:
+**Activate newly created environment:**
 ```
 .\venv\Scripts\Activate.ps1
 ```
