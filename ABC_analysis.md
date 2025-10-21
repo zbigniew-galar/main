@@ -130,7 +130,7 @@ IF(F2<=0,8;"A";(IF(F2<=0,95;"B";"C")))
 11. Redo the entire ABC analysis for sales data per SKU and Period. 
 12. Compare ABC groups for the same periods for stock and sales. Whenever an SKU is in A in sales and C in stock it could lead to stock-out. Whenever an SKU is in C in sales and A in stock it could lead to utilization because of shelf life. 
 13. Use conditional formatting for ABC classification cells with A as Green, B as Yellow and C as Red or vice versa. 
-![[Pasted image 20251008224159.png]]
+    Use `Green Fill with Dark Green Text` and `Yellow Fill with Dark Yellow Text` and `Light Red Fill with Dark Red Text`
 ```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
 ```
