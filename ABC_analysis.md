@@ -1,3 +1,5 @@
+### Mindset
+**Make as many mistakes as you can in a shortest amount of time so that you can learn from them. Mistakes and errors are your friend and you can be proud of them.**
 ### Shortcuts Hotkeys:
 | 🧩 **Action**                                                        | ⌨️ **Windows Shortcut**  | 🍎 **Mac Shortcut**                         | 📝 **Notes**                                        |
 | :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :-------------------------------------------------- |
@@ -70,7 +72,7 @@ MATCH(lookup_value, lookup_array, [match_type])
 ``` excel
 INDEX(array, row_num, [column_num])
 ```
-- **Show a certain value when error like zero `0` or empty cell `""`**
+- **Show a certain value when error like zero `0` or empty cell `""`. Errors are a friend. They are like a pain signal giving feedback. Remove them only if you understand the analysis deeply:**
 ``` excel
 IFERROR(value, value_if_error)
 ```
