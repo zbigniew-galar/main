@@ -38,7 +38,7 @@
 ``` excel
 =SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)*$T2
 ```
-- **Cumulative sum of stock value in column B:**
+- **Percent running total. Cumulative sum of stock value in column B:**
 Cell C1 formula:
 ``` excel
 =C2
