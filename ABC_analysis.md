@@ -1,29 +1,30 @@
 ### Mindset
 **Make as many mistakes as you can in a shortest amount of time so that you can learn from them. Mistakes and errors are your friend and you can be proud of them.**
 ### Shortcuts Hotkeys:
-| 🧩 **Action**                                                        | ⌨️ **Windows Shortcut**  | 🍎 **Mac Shortcut**                         | 📝 **Notes**                                        |
-| :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :-------------------------------------------------- |
-| **Array formula**                                                    | `Ctrl + Shift + Enter`   | `⌃ + Shift + Return`                        | Confirms array formulas (older Excel versions).     |
-| **Block cell selection with dollar symbols** _(absolute references)_ | `F4`                     | `⌘ + T` _(or `Fn + F4` on laptops)_         | Cycles `$A$1`, `A$1`, `$A1`, etc.                   |
-| **Create filter**                                                    | `Ctrl + Shift + L`       | `⌃ + Shift + L` _(or `⌘ + Shift + F`)_      | Adds/removes column filters.                        |
-| **Create table (structured Table)**                                  | `Ctrl + T`               | `⌘ + T`                                     | Converts range into a structured Excel Table.       |
-| **Create _list-type_ table (legacy)**                                | `Ctrl + L`               | `⌃ + L`                                     | Creates a “List Object,” Excel’s older table form.  |
-| **Drop-down list of existing values**                                | _(N/A)_                  | `⌥ + ↓`                                     | Shows existing entries from the column.             |
-| **Edit cell**                                                        | `F2`                     | `⌃ + U`                                     | Opens cell for editing.                             |
-| **Find and Replace**                                                 | `Ctrl + H`               | `⌘ + Shift + H` _(or `⌘ + F` to find only)_ | Opens the Find/Replace dialog.                      |
-| **Go until the end of values**                                       | `Shift + (Arrow)`        | `Shift + (Arrow)`                           | Extends selection to data end.                      |
-| **Go to section (jump to end)**                                      | `Ctrl + (Arrow)`         | `⌘ + (Arrow)`                               | Moves to edge of data region.                       |
-| **Next sheet**                                                       | `Ctrl + PageDown`        | `⌘ + Option + →` _(or `Fn + ⌃ + ↓`)_        | Moves to next worksheet tab.                        |
-| **Previous sheet**                                                   | `Ctrl + PageUp`          | `⌘ + Option + ←` _(or `Fn + ⌃ + ↑`)_        | Moves to previous worksheet tab.                    |
-| **Repeat last action**                                               | `Ctrl + Y`               | `⌘ + Y` _(or `⌘ + Shift + Z`)_              | Repeats the last command or action.                 |
-| **Select all**                                                       | `Ctrl + A`               | `⌘ + A`                                     | Selects all cells in the current data region.       |
-| **Select all until the end of values**                               | `Ctrl + Shift + (Arrow)` | `⌘ + Shift + (Arrow)`                       | Selects to the end of contiguous data.              |
-| **Select column**                                                    | `Ctrl + Space`           | `⌃ + Space`                                 | Selects the entire column of the active cell.       |
-| **Select section (jump selection)**                                  | `Ctrl + Shift + (Arrow)` | `⌘ + Shift + (Arrow)`                       | Expands selection to data edge.                     |
-| **Select object**                                                    | `Ctrl + Shift + Space`   | `⌃ + Shift + Space`                         | Selects all objects (charts, shapes, etc.)          |
-| **Select row**                                                       | `Shift + Space`          | `Shift + Space`                             | Selects the entire row.                             |
-| **Two decimal places + thousand separator**                          | `Ctrl + Shift + !`       | `⌘ + Shift + !`                             | Applies number format with commas and two decimals. |
-| **Undo last action**                                                 | `Ctrl + Z`               | `⌘ + Z`                                     | Reverts last action.                                |
+|🧩 **Action**|⌨️ **Windows Shortcut**|🍎 **Mac Shortcut**|📝 **Notes**|
+|:--|:--|:--|:--|
+|**Array formula**|`Ctrl + Shift + Enter`|`⌃ + Shift + Return`|Confirms array formulas (older Excel versions).|
+|**Block cell selection with dollar symbols** _(absolute references)_|`F4`|`⌘ + T` _(or `Fn + F4` on laptops)_|Cycles `$A$1`, `A$1`, `$A1`, etc.|
+|**Create filter**|`Ctrl + Shift + L`|`⌃ + Shift + L` _(or `⌘ + Shift + F`)_|Adds/removes column filters.|
+|**Create table (structured Table)**|`Ctrl + T`|`⌘ + T`|Converts range into a structured Excel Table.|
+|**Create _list-type_ table (legacy)**|`Ctrl + L`|`⌃ + L`|Creates a “List Object,” Excel’s older table form.|
+|**Drop-down list of existing values**|_(N/A)_|`⌥ + ↓`|Shows existing entries from the column.|
+|**Edit cell**|`F2`|`⌃ + U`|Opens cell for editing.|
+|**Find and Replace**|`Ctrl + H`|`⌘ + Shift + H` _(or `⌘ + F` to find only)_|Opens the Find/Replace dialog.|
+|**Go until the end of values**|`Shift + (Arrow)`|`Shift + (Arrow)`|Extends selection to data end.|
+|**Go to section (jump to end)**|`Ctrl + (Arrow)`|`⌘ + (Arrow)`|Moves to edge of data region.|
+|**Next sheet**|`Ctrl + PageDown`|`⌘ + Option + →` _(or `Fn + ⌃ + ↓`)_|Moves to next worksheet tab.|
+|**Previous sheet**|`Ctrl + PageUp`|`⌘ + Option + ←` _(or `Fn + ⌃ + ↑`)_|Moves to previous worksheet tab.|
+|**Repeat last action**|`Ctrl + Y`|`⌘ + Y` _(or `⌘ + Shift + Z`)_|Repeats the last command or action.|
+|**Select all**|`Ctrl + A`|`⌘ + A`|Selects all cells in the current data region.|
+|**Select all until the end of values**|`Ctrl + Shift + (Arrow)`|`⌘ + Shift + (Arrow)`|Selects to the end of contiguous data.|
+|**Select column**|`Ctrl + Space`|`⌃ + Space`|Selects the entire column of the active cell.|
+|**Select section (jump selection)**|`Ctrl + Shift + (Arrow)`|`⌘ + Shift + (Arrow)`|Expands selection to data edge.|
+|**Select object**|`Ctrl + Shift + Space`|`⌃ + Shift + Space`|Selects all objects (charts, shapes, etc.)|
+|**Select row**|`Shift + Space`|`Shift + Space`|Selects the entire row.|
+|**Spread formula or text to multiple lines**|`Alt + Enter`|`⌃ + Option + Return`|Inserts a line break within a cell or formula.|
+|**Two decimal places + thousand separator**|`Ctrl + Shift + !`|`⌘ + Shift + !`|Applies number format with commas and two decimals.|
+|**Undo last action**|`Ctrl + Z`|`⌘ + Z`|Reverts last action.|
 ### Definitions
 - **CSV** - Comma-Separated Values. The most common text data format.
 - **Long and wide data format** - Long (narrow or stacked or vertical) format means each row is an observation, while wide (horizontal or unstacked) format spreads variables across columns.
