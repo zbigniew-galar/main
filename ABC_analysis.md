@@ -47,6 +47,10 @@ Cell C2 formula. Drag this formula down (right down corner double click):
 ``` excel
 =SUM($C$2:C3)
 ```
+- **Nested IF function with two conditions:**
+``` excel
+=IF(C2<=0,8;"A";IF(C2<=0,95;"B";"C"))
+```
 ### Excel functions
 - **Adds values. You can add individual values, cell references or ranges or a mix of all three:**
 ``` excel
