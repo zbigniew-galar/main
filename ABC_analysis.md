@@ -33,7 +33,9 @@ Pareto analysis sets priorities for action based on the assumption that roughly 
 2. Gather the data and calculate the frequency of observations in each category for an appropriate time period. A check sheet could be used to guide data collection.
 3. Sort the categories in descending order based on their percentages.
 4. Present the data graphically
+
 **Source:** Swink, M., Melnyk, S. and Hartley, J.L. (2024) _Managing Operations Across the Supply Chain_. New York: McGraw Hill. p. 212.
+
 - **Cardinality** -  refers to the uniqueness of values within a relationship in a data model and describes how many occurrences of one entity connect to occurrences of another entity.
 - **CSV** - Comma-Separated Values. The most common text data format.
 - **Long and wide data format** - Long (narrow or stacked or vertical) format means each row is an observation, while wide (horizontal or unstacked) format spreads variables across columns.
