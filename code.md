@@ -1,3 +1,9 @@
+**Google Gemini Pro for academics and students 1 year for free:**
+[one.google.com/ai-student](https://t.co/HLaT7EK7iU)
+
+**NotebookLM summary agent:**
+https://notebooklm.google/
+
 ### Claude Sonnet 4.5 Coding prompts
 **Basic prompt for Python coding:**
 ```
