@@ -1,0 +1,18 @@
+- Alexander, M. and Kusleika, D. (2025) _Microsoft Excel 365 Bible_. 2nd ed. Hoboken, NJ: Wiley.
+- Barrasa, J. and Webber, J. (2023) _Building Knowledge Graphs: A Practitioner’s Guide_. 1st ed. Sebastopol, CA: O’Reilly Media.
+- Bastick, L. and Liau, J. (2022) _Financial Modelling in Power BI: Forecasting Business Intelligently_. Merritt Island, FL: Holy Macro! Books.
+- Burkhow, J. (2024) _Alteryx Designer: The Definitive Guide: Simplify and Automate Your Analytics_. Sebastopol, CA: O’Reilly Media.
+- Chen, D. (2023) _Pandas for Everyone: Python Data Analysis_. 2nd ed. Boston, MA: Addison-Wesley Professional.
+- Chou, C.-C. and Wang, D. (2025) _Python for Excel Users_. Boca Raton, FL: Chapman and Hall/CRC.
+- Ehrenmueller-Jensen, M. (2024) _Data Modeling with Microsoft Power BI: Self-Service and Enterprise Data Warehouse with Power BI_. Sebastopol, CA: O’Reilly Media.
+- Grus, J. (2019) _Data Science from Scratch: First Principles with Python_. 2nd ed. Sebastopol, CA: O’Reilly Media.
+- Jelen, B. (2025) _Microsoft Excel Pivot Table Data Crunching Including Dynamic Arrays, Power Query, and Copilot_. Hoboken, NJ: Microsoft Press.
+- Jolly, J. (2023) _Microsoft Power BI Data Analyst Certification Companion: Preparation for Exam PL-300_. Berkeley, CA: Apress.
+- Kopeć, A.S. (2025) _Learning Power Query: Simplify data cleaning and analysis with Excel’s most powerful tool_. Delhi: BPB Publications.
+- Lau, S., Gonzalez, J. and Nolan, D. (2023) _Learning Data Science: Data Wrangling, Exploration, Visualization, and Modeling with Python_. Sebastopol, CA: O’Reilly Media.
+- McKinney, W. (2022) _Python for Data Analysis: Data Wrangling with pandas, NumPy, and Jupyter_. 3rd ed. Sebastopol, CA: O’Reilly Media.
+- Puls, K. and Escobar, M. (2021) _Master Your Data with Power Query in Excel and Power BI: Leveraging Power Query to Get & Transform Your Task Flow_. 2nd ed. Merritt Island, FL: Holy Macro! Books.
+- Robinson, I., Webber, J. and Eifrem, E. (2015) _Graph Databases: New Opportunities for Connected Data_. 2nd ed. Beijing: O’Reilly Media.
+- Sarka, D., Rihar, J. and Vončina, K. (2023) _Advanced Analytics with Power BI and Excel: Learn powerful visualization and data analysis techniques using Microsoft BI tools along with Python and R_. Delhi: Orange Education Pvt Ltd.
+- Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
+- Swink, M., Melnyk, S. and Hartley, J.L. (2024) _Managing Operations Across the Supply Chain_. New York, NY: McGraw Hill.
