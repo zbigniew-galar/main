@@ -3,7 +3,7 @@
 - Bastick, L. and Liau, J. (2022) _Financial Modelling in Power BI: Forecasting Business Intelligently_. Merritt Island, FL: Holy Macro! Books.
 - Burkhow, J. (2024) _Alteryx Designer: The Definitive Guide: Simplify and Automate Your Analytics_. Sebastopol, CA: O’Reilly Media.
 - Chen, D. (2023) _Pandas for Everyone: Python Data Analysis_. 2nd ed. Boston, MA: Addison-Wesley Professional.
-- Chou, C.-C. and Wang, D. (2025) _Python for Excel Users_. Boca Raton, FL: Chapman and Hall/CRC.
+- Chou, C.C. and Wang, D. (2025) _Python for Excel Users_. Boca Raton, FL: Chapman and Hall/CRC.
 - Ehrenmueller-Jensen, M. (2024) _Data Modeling with Microsoft Power BI: Self-Service and Enterprise Data Warehouse with Power BI_. Sebastopol, CA: O’Reilly Media.
 - Grus, J. (2019) _Data Science from Scratch: First Principles with Python_. 2nd ed. Sebastopol, CA: O’Reilly Media.
 - Jelen, B. (2025) _Microsoft Excel Pivot Table Data Crunching Including Dynamic Arrays, Power Query, and Copilot_. Hoboken, NJ: Microsoft Press.
