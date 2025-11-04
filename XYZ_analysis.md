@@ -51,7 +51,7 @@ $$
 - **Variance** - a statistical measure of the _spread or dispersion_ of data points in a set relative to their mean (average).
 Population variance: $$ \sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N} $$ Sample variance: $$ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} $$
 - **SKU** - Stock Keeping Unit. Alphanumeric symbol for a type of physical good a company uses. Basis for masterdata management.
-### [[Excel]] Functions
+### Excel Functions
 - Adds values. You can add individual values, cell references or ranges or a mix of all three:
 ``` excel
 SUM(number1,[number2],...)
