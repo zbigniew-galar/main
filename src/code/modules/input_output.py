@@ -48,24 +48,66 @@ class input_func:
 class output_func:
 
     # Saving in the same folder as the Python (py or ipynb) file using one of two popular Excel libraries
-    def save_file(data: pd.DataFrame, name: str) -> None:
+    def save_file(data: pd.DataFrame, name: str, output_path: Optional[str] = None) -> None:
         """
         Saves a DataFrame to an Excel file using the preferred engine.
         Falls back to openpyxl if xlsxwriter is unavailable.
-        """
-        dump_file_name = f"{name}.xlsx"
-        data_dump = os.path.join(os.getcwd(), dump_file_name)
 
+        Parameters
+        ----------
+        data : pd.DataFrame
+            The DataFrame to be saved.
+        name : str
+            The base name (without extension) for the output file.
+        output_path : Optional[str], default=None
+            The folder where the file should be saved. If not provided, saves to current working directory.
+
+        Returns
+        -------
+        None
+            The function writes the Excel file to disk.
+        """
+
+        # ======================
+        # Step 1: Validate input
+        # ======================
+        if not isinstance(data, pd.DataFrame):
+            raise TypeError("❌ 'data' must be a pandas DataFrame.")
+        if not isinstance(name, str):
+            raise TypeError("❌ 'name' must be a string.")
+        if output_path is not None and not isinstance(output_path, str):
+            raise TypeError("❌ 'output_path' must be a string or None.")
+
+        # ======================
+        # Step 2: Determine save path
+        # ======================
+        dump_file_name = f"{name}.xlsx"
+        save_dir = output_path if output_path else os.getcwd()
+
+        # Validate that directory exists
+        if not os.path.isdir(save_dir):
+            raise OSError(f"❌ The specified directory does not exist: {save_dir}")
+
+        # Construct full file path
+        data_dump = os.path.join(save_dir, dump_file_name)
+
+        # ======================
+        # Step 3: Save the DataFrame
+        # ======================
         try:
-            # Try xlsxwriter first (faster, supports formatting)
-            writer = pd.ExcelWriter(data_dump, engine="xlsxwriter")
+            # Prefer xlsxwriter (faster, better formatting support)
+            with pd.ExcelWriter(data_dump, engine="xlsxwriter") as writer:
+                data.to_excel(writer, sheet_name=name, index=False)
+
         except ModuleNotFoundError:
             print("⚠️  xlsxwriter not found. Falling back to openpyxl.")
-            writer = pd.ExcelWriter(data_dump, engine="openpyxl")
+            with pd.ExcelWriter(data_dump, engine="openpyxl") as writer:
+                data.to_excel(writer, sheet_name=name, index=False)
 
-        # Write to Excel
-        data.to_excel(writer, sheet_name=name, index=False)
+        except Exception as e:
+            raise RuntimeError(f"❌ Failed to save Excel file: {e}")
 
-        # Save and close the writer properly
-        writer.close()
-        print(f"✅ Data successfully saved as: {dump_file_name}")
+        # ======================
+        # Step 4: Confirmation
+        # ======================
+        print(f"✅ Data successfully saved as: {data_dump}")
