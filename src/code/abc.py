@@ -128,7 +128,7 @@ def save_file(data: pd.DataFrame, name: str) -> None:
 
     # Save and close the writer properly
     writer.close()
-    print(f"✅ Data successfully saved as: {dump_file_name}")
+    print(f"✅ Data successfully saved as: {data_dump}")
 
 
 #Execution:
@@ -143,6 +143,16 @@ cogs = pd.read_csv(file_path2, sep=';')
 # Replace comma with dot and convert to float
 stock['Stock'] = stock['Stock'].str.replace(',', '.').astype(float)
 cogs['COGS'] = cogs['COGS'].str.replace(',', '.').astype(float)
+# Change Date column to datetime format
+stock['Date'] = pd.to_datetime(stock['Date'])
+
+# Create a string Period column from Date
+# New column
+stock['Period'] = stock['Date']
+# Change format
+stock['Period'] = pd.to_datetime(stock['Date']).dt.strftime('%Y-%m')
+# Delete old column
+del stock['Date']
 
 # Vlookup COGS column to Stock table
 stock_cogs = pd.merge(stock, cogs, how='left', on='SKU')
@@ -153,6 +163,11 @@ stock_cogs['Value'] = stock_cogs['Stock']*stock_cogs['COGS']
 # Choose columns in a specific order
 required_cols = ['SKU', 'Period', 'Value']
 abc_input = stock_cogs[required_cols].copy()
+
+# Aggregate values by on SKU, Period level
+aggregation_cols = ['SKU','Period']
+abc_input = abc_input.groupby(aggregation_cols, as_index=False).agg(
+{'Value':'sum'})
 
 # ABC classification operation
 df_result = assign_abc_groups(abc_input)
