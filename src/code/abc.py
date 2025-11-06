@@ -84,8 +84,6 @@ def assign_abc_groups(df: pd.DataFrame, a_threshold: float = 0.80, b_threshold: 
         else:
             return 'C'
 
-
-
     # Apply classification row-wise
     agg_df['ABC_Group'] = agg_df.apply(
         lambda x: classify_abc(x['Cumulative_Percent'], x['Total_Period_Value']),
