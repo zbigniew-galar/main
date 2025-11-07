@@ -125,7 +125,7 @@ C - not important SKUs
 **Opening data:**
 Double-click it or use File > Open in Excel. If Unicode characters don't display correctly, import it via Excel's Data tab > Get Data > From Text/CSV.
 
-**ABC analysis in Excel:**
+#### ABC analysis in Excel
 1. "Stock history" table usually as ERP data dump in long format. Stock quantity at the end of the calendar month.
 2. Cost of Goods Sold "COGS" table for prices.
 3. Copy all SKUs and paste to "Table" sheet as values and remove duplicates. 
@@ -135,16 +135,19 @@ Excel -> Data -> Remove Duplicates
 4. Add prices from "COGS" for every index via INDEX(MATCH).
 5. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
 6. Use SUMIFS function to populate stock value in COGS per SKU and Period.
-7. Create new "Sum" column and summarize each row then copy and paste the SKU and Sum column into new sheet and sort descending from Largest to Smallest to find the most important SKUs.
-8. For ABC analysis copy and paste value of stock for the first period to "ABC" sheet. Make a table and sort descending from Largest to Smallest value. Add cumulative SUM by blocking starting cell selection:
+7. For ABC analysis copy and paste value of stock for the first period to "ABC" sheet. SKU in column A and Values of stock in column B. Make a table and sort descending from Largest to Smallest value by column B. Add a new column as ratio of a particular stock in the sum of entire stock value as column C:
+``` excel
+B2/SUM($B$2:$B$9000)
+```
+8. Add cumulative SUM column as D by blocking starting cell selection:
 ``` excel
 SUM(C$2:C2)
 ```
-9. Calculate total sum of stock in the next column to have a point of reference for the value of each stock. Divide Cumulative sum by Total sum to get the percentage for the Pareto Analysis in the next "ABC" column:
+9. Assign ABC groups based on column D cumulative sum values. Pareto Analysis will be the next "ABC" column as column E:
 ``` excel
-IF(F2<=0,8;"A";(IF(F2<=0,95;"B";"C")))
+IF(D2<=0,8;"A";(IF(D2<=0,95;"B";"C")))
 ```
-10. Copy SKU and ABC columns and paste them as values and repeat the last point operation for each period separately or for an aggregation of periods. 
+10. Copy SKU and ABC columns and paste them as values in the new sheet for safe keeping and repeat the ABC analysis operations. 
 11. Redo the entire ABC analysis for sales data per SKU and Period. 
 12. Compare ABC groups for the same periods for stock and sales. Whenever an SKU is in A in sales and C in stock it could lead to stock-out. Whenever an SKU is in C in sales and A in stock it could lead to utilization because of shelf life. 
 13. Use conditional formatting for ABC classification cells with A as Green, B as Yellow and C as Red or vice versa. 
