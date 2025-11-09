@@ -42,7 +42,7 @@ Pareto analysis sets priorities for action based on the assumption that roughly 
 - **Pivoting** - transposes the data from vertical to horizontal format. Creates columns from rows. Pivot function in Python. Cross Tab tool in Alteryx.
 - **SKU** - Stock Keeping Unit. Alphanumeric symbol for a type of physical good a company uses. Basis for masterdata management.
 ### Techniques
-- **Connecting price data from B column of "COGS" table to the stock table based on the SKUs from C column that can be found in A column of "COGS" table:**
+- **Connecting price data from B column of `COGS` table to the stock table based on the SKUs from C column that can be found in A column of `COGS` table:**
 ``` excel
 =IFERROR(INDEX(COGS!$B$2:$B$90000;MATCH(C2;COGS!$A$2:$A$90000;0));0)
 ```
