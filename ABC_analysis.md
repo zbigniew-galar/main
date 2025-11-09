@@ -100,6 +100,32 @@ IFERROR(INDEX(Sheet1'!$B$2:$B$200;MATCH(A2;'Sheet1'!$A$2:$A$200;0));"")
 ``` excel
 IF(logical_test, value_if_true, [value_if_false])
 ```
+### Power BI functions
+- Returns the first expression that does not evaluate to BLANK. If all expressions evaluate to BLANK, BLANK is returned.:
+``` excel
+COALESCE(<expression>, <expression>[, <expression>]…)
+```
+- Returns a related value from another table. When the RELATED function performs a lookup, it examines all values in the specified table regardless of any filters that may have been applied.`RELATED(<Table>[Column])` fetches the _single value_ of `<Column>` from a table that is related to the current table via a model relationship. Conceptually it performs a lookup from the current row (row context) to the related table following the relationship path defined in the data model. It is designed to be used where a one-to-many relationship exists and you are on the **many** side (e.g., `Stock` many → `COGS` one).:
+``` excel
+RELATED(<column>)
+```
+- Returns the value for the row that meets all criteria specified by one or more search conditions. The value of `result_columnName` at the row where all pairs of `search_columnName` and `search_value` have an exact match. If there isn't a match that satisfies all the search values, BLANK or `alternateResult` (if specified) is returned. In other words, the function doesn't return a lookup value if only some of the criteria match. If multiple rows match the search values and the values in the `result_columnName` for these rows are identical, then that value is returned. However, if `result_columnName` returns different values, an error or `alternateResult` (if specified) is returned.
+
+|Term|Definition|
+|---|---|
+|`result_columnName`|The name of an existing column that contains the value you want to return. It cannot be an expression.|
+|`search_columnName`|The name of an existing column. It can be in the same table as result_columnName or in a related table. It cannot be an expression. Multiple pairs of search_columnName and search_value can be specified.|
+|`search_value`|The value to search for in search_columnName. Multiple pairs of search_columnName and search_value can be specified.|
+|`alternateResult`|(Optional) The value returned when the context for result_columnName has been filtered down to zero or more than one distinct value. If not specified, the function returns BLANK when result_columnName is filtered down to zero values or an error when there is more than one distinct value in the context for result_columnName.|
+``` excel
+LOOKUPVALUE (
+    <result_columnName>,
+    <search_columnName>,
+    <search_value>
+    [, <search2_columnName>, <search2_value>]…
+    [, <alternateResult>]
+)
+```
 ### ABC analysis in Excel
 #### Main formula
 ``` mermaid
@@ -153,5 +179,197 @@ IF(D2<=0,8;"A";(IF(D2<=0,95;"B";"C")))
 13. Use conditional formatting for ABC classification cells with A as Green, B as Yellow and C as Red or vice versa. 
     Use `Green Fill with Dark Green Text` and `Yellow Fill with Dark Yellow Text` and `Light Red Fill with Dark Red Text`
 ```
+### ABC analysis in Excel using Pivot Tables execution steps
+1. Add corresponding "COGS" values as new column in source table using VLOOKUP or INDEX MATCH.
+2. Create a new "Value" column by multiplying "COGS" by the "Stock". 
+3. After selecting source table create a Pivot Table:
+```
+Insert -> Pivot Table -> New Worksheet
+```
+4. Drag "SKU" column as Rows and "Value" column as Values and sort Row Labels descending by "Value" with "More Sort Options":
+```
+Row Labels (Sort button click) -> More Sort Options -> Descending (Z to A) by: -> Sum of Value
+```
+5. Add a running total by "SKU" via "% Running Total in":
+```
+Sum of Value (Mouse Right click) -> Show Values As -> % Running Total In...
+```
+6. Select single period in the Pivot table and add a new formula based calculated column next to the Pivot table. By changing the filter we do different ABC analysis dynamically:
+``` excel
+=IF(B4<=0,8;"A";IF(B4<=0,95;"B";"C"))
+```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
+```
+## ABC analysis in [[Power BI]]
+### Main formula
+``` excel
+ABC =
+VAR CurrentPeriod = 'Stock'[Period]
+
+// Calculate total value for the current period
+VAR TotalValue =
+    CALCULATE(
+        SUM('Stock'[Value]),
+        FILTER(
+            ALL('Stock'),
+            'Stock'[Period] = CurrentPeriod
+        )
+    )
+
+// Determine rank of current item based on Value (descending)
+VAR Ranked =
+    RANKX(
+        FILTER(
+            ALL('Stock'),
+            'Stock'[Period] = CurrentPeriod
+        ),
+        'Stock'[Value],
+        ,
+        DESC,
+        Dense
+    )
+
+// Compute cumulative share of value up to current rank
+VAR Cumulative =
+    DIVIDE(
+        SUMX(
+            FILTER(
+                ALL('Stock'),
+                'Stock'[Period] = CurrentPeriod &&
+                RANKX(
+                    FILTER(ALL('Stock'), 'Stock'[Period] = CurrentPeriod),
+                    'Stock'[Value],
+                    ,
+                    DESC,
+                    Dense
+                ) <= Ranked
+            ),
+            'Stock'[Value]
+        ),
+        TotalValue
+    )
+
+// Classify based on cumulative thresholds
+RETURN
+    IF(
+        Cumulative <= 0.8,
+        "A",
+        IF(
+            Cumulative <= 0.95,
+            "B",
+            "C"
+        )
+    )
+```
+#### Explanation
+This captures the current row’s period and ensures that calculations are per period, not across the entire dataset:
+``` excel
+VAR CurrentPeriod = 'Stock'[Period]
+```
+Total value per period calculation. Uses ALL('Stock') to remove existing filters. Reapplies a filter to keep only the current period. Ensures the denominator of the cumulative % is the total value for that period:
+``` excel
+VAR TotalValue =
+    CALCULATE(
+        SUM('Stock'[Value]),
+        FILTER(
+            ALL('Stock'),
+            'Stock'[Period] = CurrentPeriod
+        )
+    )
+```
+Ranking items within the period. Ranks SKUs based on their value within the current period in descending order. Dense ranking means no gaps in rank numbers (e.g., 1,2,3 even if duplicates):
+``` excel
+VAR Ranked =
+    RANKX(
+        FILTER(
+            ALL('Stock'),
+            'Stock'[Period] = CurrentPeriod
+        ),
+        'Stock'[Value],
+        ,
+        DESC,
+        Dense
+    )
+```
+Cumulative share calculation. Filters all rows for the current period. Keeps only items with rank ≤ current row’s rank. Sums their values, then divides by total period value. This computes the cumulative contribution of the current SKU in sorted order:
+``` excel
+VAR Cumulative =
+    DIVIDE(
+        SUMX(
+            FILTER(
+                ALL('Stock'),
+                'Stock'[Period] = CurrentPeriod &&
+                RANKX(
+                    FILTER(ALL('Stock'), 'Stock'[Period] = CurrentPeriod),
+                    'Stock'[Value],
+                    ,
+                    DESC,
+                    Dense
+                ) <= Ranked
+            ),
+            'Stock'[Value]
+        ),
+        TotalValue
+    )
+```
+Classification based on thresholds for standard ABC:
+``` excel
+// Classify based on cumulative thresholds
+RETURN
+    IF(
+        Cumulative <= 0.8,
+        "A",
+        IF(
+            Cumulative <= 0.95,
+            "B",
+            "C"
+        )
+    )
+```
+### Analysis in Power BI execution steps
+1. Load data as two separate files. Because of the common name of single column a data relation will be created. In this case we have 1 unique value in COGS column of "COGS" table and many rows for the same SKU in "Stock" table:
+```
+Cardinality: Many to one
+```
+2. Add new column of data in Stock table getting the COGS corresponding values:
+``` excel
+COGS = RELATED(COGS[COGS])
+```
+or the same but with error handling:
+``` excel
+COGS = 
+VAR RelatedCOGS = RELATED(COGS[COGS])
+RETURN
+    // Use COALESCE to handle cases where no match is found for SKU
+    COALESCE(RelatedCOGS, 0)
+
+// --- Explanation ---
+// RELATED: Fetches the single related value from COGS table for each SKU
+// COALESCE: Replaces BLANK values with 0 if there's no matching SKU
+// This column now holds the corresponding COGS amount for each Stock row.
+```
+3. Based on provided corresponding value per unit column (COGS) we can now calculate the value of the stock in the new column:
+``` excel
+Value = Stock[Stock]*Stock[COGS]
+```
+4. Apply the main formula to calculate the ABC classification based on 'Value' column.
+5. Export Data with 30k rows limit: Create a table as visual and select it:
+```
+More options -> Export data
+```
+Export data as CSV without 150k rows limit by running the Power Query code:
+``` excel
+let
+    Source = #"Your Final Table",
+    Export = Table.ExportCsv(Source, "C:\Exports\abc_analysis.csv")
+in
+    Export
+```
+ DAX Studio: https://daxstudio.org/. DAX Studio is the most reliable way to extract large datasets — it queries the full model directly, bypassing UI limits. Install and open DAX Studio when Power BI file is already opened and it will suggest to connect to it. DAX Studio can also explore all the hidden details of your data model, such as hidden tables, query performance etc. Once the connection is established run this command to load the data:
+``` excel
+EVALUATE 'Stock'
+```
+Then export any amount of data to CSV with the delimiter appropriate to data (character not present in the data):
+```
+Advanced -> Export Data -> CSV Files
 ```
