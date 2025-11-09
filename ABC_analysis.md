@@ -126,6 +126,69 @@ LOOKUPVALUE (
     [, <alternateResult>]
 )
 ```
+### Power Query functions
+- `Csv.Document` function returns the contents of the CSV document as a table.
+``` excel
+Csv.Document(
+    source as any,
+    optional columns as any,
+    optional delimiter as any,
+    optional extraValues as nullable number,
+    optional encoding as nullable number
+) as table
+```
+- `Table.PromoteHeaders` function promotes the first row of values as the new column headers (i.e. column names). By default, only text or number values are promoted to headers. 
+``` excel
+Table.PromoteHeaders(**table** as table, optional **options** as nullable record) as table
+```
+- `Table.TransformColumnTypes` function returns a table by applying the transform operations to the specified columns using an optional culture.
+``` excel
+Table.TransformColumnTypes(
+    **table** as table,
+    **typeTransformations** as list,
+    optional **culture** as nullable text
+) as table
+```
+- `Table.NestedJoin` function joins the rows of `table1` with the rows of `table2` based on the equality of the values of the key columns selected by `key1` (for `table1`) and `key2` (for `table2`). The results are entered into the column named `newColumnName`. The optional `joinKind` specifies the kind of join to perform. By default, a left outer join is performed if a `joinKind` is not specified. An optional set of `keyEqualityComparers` may be included to specify how to compare the key columns. This `keyEqualityComparers` feature is currently intended for internal use only.
+``` excel
+Table.NestedJoin(
+    table1 as table,
+    key1 as any,
+    table2 as any,
+    key2 as any,
+    newColumnName as text,
+    optional joinKind as nullable number,
+    optional keyEqualityComparers as nullable list
+) as table
+```
+- `Table.ExpandTableColumn` function expands tables in `table["column"]` into multiple rows and columns. `columnNames` is used to select the columns to expand from the inner table. Specify `newColumnNames` to avoid conflicts between existing columns and new columns.
+``` excel
+Table.ExpandTableColumn(
+    table as table,
+    column as text,
+    columnNames as list,
+    optional newColumnNames as nullable list
+) as table
+```
+- `Table.ReplaceValue` function replaces a value with a new value in the specified columns of a table. 
+``` excel
+Table.ReplaceValue(
+    **table** as table,
+    **oldValue** as any,
+    **newValue** as any,
+    **replacer** as function,
+    **columnsToSearch** as list
+) as table
+```
+- `Table.AddColumn` function adds a column named `newColumnName` to the table `table`. The values for the column are computed using the specified selection function `columnGenerator` with each row taken as an input.
+``` excel
+Table.AddColumn(
+    **table** as table,
+    **newColumnName** as text,
+    **columnGenerator** as function,
+    optional **columnType** as nullable type
+) as table
+```
 ### ABC analysis in Excel
 #### Main formula
 ``` mermaid
@@ -359,7 +422,7 @@ More options -> Export data
 ```
 Export data as CSV without 150k rows limit by running the Power Query code:
 ``` excel
-let
+= let
     Source = #"Your Final Table",
     Export = Table.ExportCsv(Source, "C:\Exports\abc_analysis.csv")
 in
