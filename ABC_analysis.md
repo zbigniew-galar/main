@@ -242,6 +242,8 @@ IF(D2<=0,8;"A";(IF(D2<=0,95;"B";"C")))
 13. Use conditional formatting for ABC classification cells with A as Green, B as Yellow and C as Red or vice versa. 
     Use `Green Fill with Dark Green Text` and `Yellow Fill with Dark Yellow Text` and `Light Red Fill with Dark Red Text`
 ```
+Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
+```
 ### ABC analysis in Excel using Pivot Tables execution steps
 1. Add corresponding "COGS" values as new column in source table using VLOOKUP or INDEX MATCH.
 2. Create a new "Value" column by multiplying "COGS" by the "Stock". 
