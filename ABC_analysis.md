@@ -54,6 +54,8 @@ Pareto analysis sets priorities for action based on the assumption that roughly 
 Cell C1 formula:
 ``` excel
 =C2
+// or
+=SUM($C$2:C2)
 ```
 Cell C2 formula. Drag this formula down (right down corner double click):
 ``` excel
