@@ -261,10 +261,7 @@ Sum of Value (Mouse Right click) -> Show Values As -> % Running Total In...
 ``` excel
 =IF(B4<=0,8;"A";IF(B4<=0,95;"B";"C"))
 ```
-Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
-```
-
-## ABC analysis in [[Power BI]]
+## ABC analysis in Power BI
 ### Main formula
 ``` excel
 ABC =
