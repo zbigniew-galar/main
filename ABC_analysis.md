@@ -51,13 +51,13 @@ Pareto analysis sets priorities for action based on the assumption that roughly 
 =SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)*$T2
 ```
 - **Percent running total. Cumulative sum of stock value in column B:**
-Cell C1 formula:
+Cell D2 formula:
 ``` excel
 =C2
 // or
 =SUM($C$2:C2)
 ```
-Cell C2 formula. Drag this formula down (right down corner double click):
+Cell D3 formula. Drag this formula down (right down corner double click):
 ``` excel
 =SUM($C$2:C3)
 ```
