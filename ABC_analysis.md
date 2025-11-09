@@ -263,6 +263,7 @@ Sum of Value (Mouse Right click) -> Show Values As -> % Running Total In...
 ```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
 ```
+
 ## ABC analysis in [[Power BI]]
 ### Main formula
 ``` excel
