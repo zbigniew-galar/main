@@ -137,7 +137,6 @@ IFERROR(STDEV.P(C3:T3)/AVERAGE(C3:T3);0)
 IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
 ```
 8. Use conditional formatting for XYZ classification cells with X as Green, Y as Yellow and Z as Red or vice versa. 
-![[Pasted image 20251008224159.png]]
 ```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
 ```
