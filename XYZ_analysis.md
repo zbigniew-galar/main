@@ -108,6 +108,21 @@ SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)
 ``` excel
 IF(logical_test, value_if_true, [value_if_false])
 ```
+- Returns the k-th percentile of values in a range, where k is in the range 0 to 1, inclusive. This function is the new version (from 2010) of PERCENTILE function.
+``` excel
+PERCENTILE.INC(array,k)
+```
+### Techniques
+- **Pivoting stock data (B column) from long to wide format by period (A column) per SKU (C column) multiplied by the price (in T column):**
+``` excel
+=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)*$T2
+```
+- **Nested IF function with two conditions with percentiles as thresholds:**
+``` excel
+IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
+or 
+IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
+```
 ### XYZ analysis in Excel
 ### Main formula
 
@@ -136,16 +151,16 @@ Double-click it or use File > Open in Excel. If Unicode characters don't display
 
 **XYZ analysis in Excel:**
 1. "Stock history" table usually as ERP data dump in long format. Stock quantity at the end of the calendar month.
-2. Cost of Goods Sold "COGS" table for prices.
-3. Copy all SKUs and paste to "Table" sheet as values and remove duplicates. 
+2. Copy all SKUs and paste to "Table" sheet as values and remove duplicates. 
 ```
 Excel -> Data -> Remove Duplicates
 ```
-1. Add prices from "COGS" for every index via VLOOKUP.
-2. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
-3. Use SUMIFS function to populate stock value in COGS per SKU and Period.
-4. Create new "Sum" column and summarize each row then copy and paste the SKU and Sum column into new sheet and sort descending from Largest to Smallest to find the most important SKUs.
-5. For XYZ analysis calculate coefficient of variation as new column. We use population standard deviation because we use whole history or sample standard deviation if we use a subset of history (the difference is not important for the business). Population answers the question of: How much did this SKU's sales _actually_ vary during these 18 months? Sample is the standard for _inferential statistics_. It provides an **unbiased estimator** of the true, underlying population variance.:
+3. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table" sheet. 
+4. Use SUMIFS function to populate stock quantity:
+``` excel
+=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
+```
+3. For XYZ analysis calculate coefficient of variation as new column. As the data source use quantity for every period per SKU. Use standard deviation of the population if we have whole history of stock or sample standard deviation if we use a subset of history (the difference is not important for the business). Population answers the question of: How much did this SKU's sales _actually_ vary during these 18 months? Sample is the standard for _inferential statistics_. It provides an **unbiased estimator** of the true, underlying population variance.:
 ``` excel
 IF(AVERAGE(C3:T3)=0;0;STDEV.P(C3:T3)/AVERAGE(C3:T3))
 or 
