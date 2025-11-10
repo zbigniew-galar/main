@@ -26,8 +26,17 @@
 |**Two decimal places + thousand separator**|`Ctrl + Shift + !`|`⌘ + Shift + !`|Applies number format with commas and two decimals.|
 |**Undo last action**|`Ctrl + Z`|`⌘ + Z`|Reverts last action.|
 ### Definitions
-- **Coefficient of Variation (CV)** - a dispersion measure. A ratio of standard variation and mean
-Population coefficient of variation: $$ CV = \frac{\sigma}{\mu} $$ Sample coefficient of variation: $$ CV = \frac{s}{\bar{x}} $$
+- **Coefficient of Variation (CV)** - a dispersion measure. A ratio of standard variation and mean.
+Coefficient of variation:
+```
+Coefficient of variation:
+CV = σ / μ  
+```
+Sample coefficient of variation:
+```
+Sample coefficient of variation: 
+CV = s / x̄
+```
 - **CSV** - Comma-Separated Values. The most common text data format.
 - **Decile** - a ten group quantile. Values that divide a data set, ordered from smallest to largest, into ten equal parts, representing 10% of the data points in each segment. 
 - **Distribution** - describes the possible values of a random variable and how often each value occurs within a dataset. It provides a framework for understanding the frequency, likelihood, and spread of different outcomes.
@@ -41,15 +50,26 @@ Population coefficient of variation: $$ CV = \frac{\sigma}{\mu} $$ Sample coeffi
 - **Pivoting** - transposes the data from vertical to horizontal format. Creates columns from rows. Pivot function in Python. Cross Tab tool in Alteryx.
 - **Standard deviation** - a statistical measure of data spread around the mean, indicating how much individual data points vary from the average
 Population standard deviation:
-$$
-\sigma =\sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
-$$
+```
+Population standard deviation:
+σ = √( Σᵢ₌₁ᴺ (xᵢ − μ)² / N )
+```
 Sample standard deviation:
-$$
-s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}
-$$
+```
+Sample standard deviation:
+s = √( Σᵢ₌₁ⁿ (xᵢ − x̄)² / (n − 1) )
+```
 - **Variance** - a statistical measure of the _spread or dispersion_ of data points in a set relative to their mean (average).
-Population variance: $$ \sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N} $$ Sample variance: $$ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} $$
+Population variance: 
+```
+Population variance:
+σ² = Σᵢ₌₁ᴺ (xᵢ − μ)² / N
+```
+Sample variance: 
+```
+Sample variance:
+s² = Σᵢ₌₁ⁿ (xᵢ − x̄)² / (n − 1)
+```
 - **SKU** - Stock Keeping Unit. Alphanumeric symbol for a type of physical good a company uses. Basis for masterdata management.
 ### Excel Functions
 - Adds values. You can add individual values, cell references or ranges or a mix of all three:
