@@ -127,7 +127,9 @@ Excel -> Data -> Remove Duplicates
 4. Create new "Sum" column and summarize each row then copy and paste the SKU and Sum column into new sheet and sort descending from Largest to Smallest to find the most important SKUs.
 5. For XYZ analysis calculate coefficient of variation as new column and we use population standard deviation because we use whole history:
 ``` excel
-IF(AVERAGE(C2:T2)=0;0;STDEV.P(C2:T2)/ABS(AVERAGE(C2:T2)))
+IF(AVERAGE(C3:T3)=0;0;STDEV.P(C3:T3)/AVERAGE(C3:T3))
+or 
+IFERROR(STDEV.P(C3:T3)/AVERAGE(C3:T3);0)
 ```
 6. Select CV column and create a histogram chart in "Charts" sheet to find the best boundary conditions for XYZ groups.
 7. For XYZ analysis calculate XYZ groups as new column:
