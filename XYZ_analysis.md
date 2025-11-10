@@ -145,16 +145,18 @@ Excel -> Data -> Remove Duplicates
 2. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
 3. Use SUMIFS function to populate stock value in COGS per SKU and Period.
 4. Create new "Sum" column and summarize each row then copy and paste the SKU and Sum column into new sheet and sort descending from Largest to Smallest to find the most important SKUs.
-5. For XYZ analysis calculate coefficient of variation as new column and we use population standard deviation because we use whole history:
+5. For XYZ analysis calculate coefficient of variation as new column. We use population standard deviation because we use whole history or sample standard deviation if we use a subset of history (the difference is not important for the business). Population answers the question of: How much did this SKU's sales _actually_ vary during these 18 months? Sample is the standard for _inferential statistics_. It provides an **unbiased estimator** of the true, underlying population variance.:
 ``` excel
 IF(AVERAGE(C3:T3)=0;0;STDEV.P(C3:T3)/AVERAGE(C3:T3))
 or 
 IFERROR(STDEV.P(C3:T3)/AVERAGE(C3:T3);0)
 ```
 6. Select CV column and create a histogram chart in "Charts" sheet to find the best boundary conditions for XYZ groups.
-7. For XYZ analysis calculate XYZ groups as new column:
+7. For XYZ analysis calculate XYZ groups as new column with thresholds based on the manual analysis of the histogram of the population of variability measure (CV) or based on X being the 33rd percentile and Y being between 33rd and 66th percentile of variability measure (CV) population:
 ``` excel
 IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
+or 
+IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
 ```
 8. Use conditional formatting for XYZ classification cells with X as Green, Y as Yellow and Z as Red or vice versa. 
 ```
