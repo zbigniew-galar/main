@@ -224,6 +224,9 @@ Double-click it or use File > Open in Excel. If Unicode characters don't display
 Excel -> Data -> Remove Duplicates
 ```
 4. Add prices from "COGS" for every index via INDEX(MATCH).
+``` excel
+IFERROR(INDEX(COGS!$B$2:$B$90000;MATCH(C2;COGS!$A$2:$A$90000;0));0)
+```
 5. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
 6. Use SUMIFS function to populate stock value in COGS per SKU and Period.
 7. For ABC analysis copy and paste value of stock for the first period to "ABC" sheet. SKU in column A and Values of stock in column B. Make a table and sort descending from Largest to Smallest value by column B. Add a new column as ratio of a particular stock in the sum of entire stock value as column C:
