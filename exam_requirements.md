@@ -73,5 +73,3 @@ IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881
 ```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
 ```
-Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
-```
