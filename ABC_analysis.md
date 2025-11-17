@@ -438,3 +438,213 @@ Then export any amount of data to CSV with the delimiter appropriate to data (ch
 ```
 Advanced -> Export Data -> CSV Files
 ```
+### ABC analysis in Python:
+#### Basic code for a single period
+``` python
+# Sorting a DataFrame
+df.sort_values('Actuals_sum',inplace=True,ascending=False)
+df.reset_index(inplace=True, drop=True)
+# New column with commulative sum
+df['Actuals_cumsum'] = df['Actuals_sum'].cumsum()
+# New column with total sum
+df['Actuals_total'] = df['Actuals_sum'].sum()
+# New column of percentage ratio
+df['Actuals_run_total'] = (df['Actuals_cumsum'] / df['Actuals_total']) * 100
+# New ABC column with 3 rules
+df['ABC'] = np.where((df['Actuals_run_total']<=100),'C','')
+df['ABC'] = np.where((df['Actuals_run_total']<=95),'B',df['ABC'])
+df['ABC'] = np.where((df['Actuals_run_total']<=80),'A',df['ABC'])
+# Removing not needed columns
+del df['Actuals_cumsum']
+del df['Actuals_total']
+del df['Actuals_run_total']
+# Show how many SKUs are in each group
+df.groupby('ABC', as_index=False)[['SKU']].count()
+```
+#### Automated ABC analysis in Python
+Transforming data for the specific input format:
+1. Loading Pandas library:
+``` python
+import pandas as pd
+```
+2. Loading stock data:
+``` python
+# Stock data loading
+file_path = "C:\\Python repositories\\Education project\\src\\data\\input\\Stock.xlsx"
+stock = pd.read_excel(file_path)
+```
+3. Loading COGS data:
+``` python
+# COGS data loading
+file_path = "C:\\Python repositories\\Education project\\src\\data\\input\\COGS.xlsx"
+cogs = pd.read_excel(file_path)
+```
+4. Create a string Period column from Date. Because ABC analysis will be done on the Period - SKU level:
+``` python
+# New column
+stock['Period'] = stock['Date']
+# Change format
+stock['Period'] = pd.to_datetime(stock['Date']).dt.strftime('%Y-%m')
+# Delete old column
+del stock['Date']
+```
+5. Vlookup COGS column to Stock table:
+``` python
+# Vlookup COGS column to Stock table
+stock_cogs = pd.merge(stock, cogs, how='left', on='SKU')
+```
+6. New Stock Value column creation:
+``` python
+# New Stock Value column creation
+stock_cogs['Value'] = stock_cogs['Stock']*stock_cogs['COGS']
+```
+7. Choose columns in a specific order:
+``` python
+# Choose columns in a specific order as copy
+required_cols = ['SKU', 'Period', 'Value']
+abc_input = stock_cogs[required_cols].copy()
+```
+8. Create ABC analysis function:
+``` python
+import pandas as pd
+import numpy as np
+
+# ABC Classification function
+def assign_abc_groups(df: pd.DataFrame, a_threshold: float = 0.80, b_threshold: float = 0.95) -> pd.DataFrame:
+    """
+    Assigns ABC classification groups to SKUs per Period based on cumulative value contribution.
+
+    Enhancements:
+    -------------
+    - Handles cases where total period value is 0 by assigning all SKUs in that period to group 'C'.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Input DataFrame with columns ['SKU', 'Period', 'Value'].
+    a_threshold : float, optional
+        Cumulative contribution cutoff for class A (default=0.80).
+    b_threshold : float, optional
+        Cumulative contribution cutoff for class B (default=0.95).
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame with columns ['SKU', 'Period', 'Value', 'ABC_Group'].
+
+    Raises
+    ------
+    ValueError
+        If required columns are missing.
+    TypeError
+        If 'Value' is not numeric.
+    """
+
+    # === 1. Input validation ===
+    required_columns = {'SKU', 'Period', 'Value'}
+    if not required_columns.issubset(df.columns):
+        missing = required_columns - set(df.columns)
+        raise ValueError(f"Missing required columns: {missing}")
+
+    if not pd.api.types.is_numeric_dtype(df['Value']):
+        raise TypeError("'Value' column must be numeric (float or int).")
+
+    # Fill missing values in Value column
+    df = df.copy()
+    df['Value'] = df['Value'].fillna(0.0)
+
+    # === 2. Aggregate total values per SKU/Period ===
+    agg_df = (
+        df.groupby(['Period', 'SKU'], as_index=False)['Value']
+        .sum()
+    )
+
+    # === 3. Sort, rank and compute cumulative metrics ===
+    agg_df = agg_df.sort_values(['Period', 'Value'], ascending=[True, False])
+
+    # Compute total value per Period
+    agg_df['Total_Period_Value'] = agg_df.groupby('Period')['Value'].transform('sum')
+
+    # Compute cumulative value per Period
+    agg_df['Cumulative_Value'] = agg_df.groupby('Period')['Value'].cumsum()
+
+    # Handle division safely: if total = 0, set cumulative percent = 1 (forcing C group)
+    agg_df['Cumulative_Percent'] = np.where(
+        agg_df['Total_Period_Value'] == 0,
+        1.0,
+        agg_df['Cumulative_Value'] / agg_df['Total_Period_Value']
+    )
+
+    # === 4. ABC Group assignment ===
+    def classify_abc(cum_pct: float, total_val: float) -> str:
+        """
+        Determine ABC class:
+        - If total value = 0  → assign 'C'
+        - Else apply thresholds normally.
+        """
+        if total_val == 0:
+            return 'C'
+        if cum_pct <= a_threshold:
+            return 'A'
+        elif cum_pct <= b_threshold:
+            return 'B'
+        else:
+            return 'C'
+
+    # Apply classification row-wise
+    agg_df['ABC_Group'] = agg_df.apply(
+        lambda x: classify_abc(x['Cumulative_Percent'], x['Total_Period_Value']),
+        axis=1
+    )
+
+    # === 5. Merge results back into original DataFrame ===
+    result_df = pd.merge(
+        df,
+        agg_df[['Period', 'SKU', 'ABC_Group']],
+        on=['Period', 'SKU'],
+        how='left'
+    )
+
+    # === 6. Validation ===
+    if result_df['ABC_Group'].isna().any():
+        raise RuntimeError("ABC group assignment failed for some rows.")
+
+    return result_df
+```
+9. ABC classification operation:
+``` python
+# ABC classification operation
+df_result = assign_abc_groups(abc_input)
+```
+10. Save to excel function:
+``` python
+import os
+
+# Saving in the same folder as the Python (py or ipynb) file using one of two popular Excel libraries
+def save_local_file(data: pd.DataFrame, name: str) -> None:
+    """
+    Saves a DataFrame to an Excel file using the preferred engine.
+    Falls back to openpyxl if xlsxwriter is unavailable.
+    """
+    dump_file_name = f"{name}.xlsx"
+    data_dump = os.path.join(os.getcwd(), dump_file_name)
+
+    try:
+        # Try xlsxwriter first (faster, supports formatting)
+        writer = pd.ExcelWriter(data_dump, engine="xlsxwriter")
+    except ModuleNotFoundError:
+        print("⚠️  xlsxwriter not found. Falling back to openpyxl.")
+        writer = pd.ExcelWriter(data_dump, engine="openpyxl")
+
+    # Write to Excel
+    data.to_excel(writer, sheet_name=name, index=False)
+
+    # Save and close the writer properly
+    writer.close()
+    print(f"✅ Data successfully saved as: {data_dump}")
+```
+11. Save output file:
+``` python
+# Save output file
+save_local_file(df_result, "abc")
+```
