@@ -20,7 +20,7 @@ IFERROR(INDEX(COGS!$B$2:$B$90000;MATCH(C2;COGS!$A$2:$A$90000;0));0)
 5. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
 6. Use SUMIFS function to populate stock value in COGS per SKU and Period.
 ``` excel
-=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
+SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
 ```
 7. For ABC analysis copy and paste value of stock for the first period to "ABC" sheet. SKU in column A and Values of stock in column B. Make a table and sort descending from Largest to Smallest value by column B. Add a new column as ratio of a particular stock in the sum of entire stock value as column C:
 ``` excel
@@ -60,7 +60,7 @@ Excel -> Data -> Remove Duplicates
 3. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table" sheet. 
 4. Use SUMIFS function to populate stock quantity:
 ``` excel
-=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
+SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
 ```
 3. For XYZ analysis calculate coefficient of variation as new column. As the data source use quantity for every period per SKU. Use standard deviation of the population if we have whole history of stock or sample standard deviation if we use a subset of history (the difference is not important for the business). Population answers the question of: How much did this SKU's sales _actually_ vary during these 18 months? Sample is the standard for _inferential statistics_. It provides an **unbiased estimator** of the true, underlying population variance.:
 ``` excel
