@@ -229,6 +229,9 @@ IFERROR(INDEX(COGS!$B$2:$B$90000;MATCH(C2;COGS!$A$2:$A$90000;0));0)
 ```
 5. Copy all periods from "Stock history" and remove duplicates. Paste them transposed as columns in "Table". 
 6. Use SUMIFS function to populate stock value in COGS per SKU and Period.
+``` excel
+SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)
+```
 7. For ABC analysis copy and paste value of stock for the first period to "ABC" sheet. SKU in column A and Values of stock in column B. Make a table and sort descending from Largest to Smallest value by column B. Add a new column as ratio of a particular stock in the sum of entire stock value as column C:
 ``` excel
 B2/SUM($B$2:$B$9000)
@@ -251,7 +254,13 @@ Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Con
 ```
 ### ABC analysis in Excel using Pivot Tables execution steps
 1. Add corresponding "COGS" values as new column in source table using VLOOKUP or INDEX MATCH.
+``` excel
+IFERROR(INDEX(COGS!$B$2:$B$90000;MATCH(C2;COGS!$A$2:$A$90000;0));0)
+```
 2. Create a new "Value" column by multiplying "COGS" by the "Stock". 
+``` excel
+D2*B2
+```
 3. After selecting source table create a Pivot Table:
 ```
 Insert -> Pivot Table -> New Worksheet
