@@ -123,6 +123,14 @@ IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
 or 
 IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
 ```
+- **Period from Date field:**
+``` excel
+=IF(MONTH(B2)<10;YEAR(B2)&"-0"&MONTH(B2);YEAR(B2)&"-"&MONTH(B2))
+or
+=TEXT(B2;"yyyy-mm")
+// polish version
+=TEKST(B2;"rrrr-mm")
+```
 ### XYZ analysis in Excel
 ### Main formula
 
