@@ -119,9 +119,9 @@ PERCENTILE.INC(array,k)
 ```
 - **Nested IF function with two conditions with percentiles as thresholds:**
 ``` excel
-IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
+=IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
 or 
-IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
+=IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
 ```
 - **Period from Date field:**
 ``` excel
