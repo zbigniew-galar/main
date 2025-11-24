@@ -65,6 +65,14 @@ Cell D3 formula. Drag this formula down (right down corner double click):
 ``` excel
 =IF(C2<=0,8;"A";IF(C2<=0,95;"B";"C"))
 ```
+- **Period from Date field:**
+``` excel
+=IF(MONTH(B2)<10;YEAR(B2)&"-0"&MONTH(B2);YEAR(B2)&"-"&MONTH(B2))
+or
+=TEXT(B2;"yyyy-mm")
+// polish version
+=TEKST(B2;"rrrr-mm")
+```
 ### Excel functions
 - **Adds values. You can add individual values, cell references or ranges or a mix of all three:**
 ``` excel
