@@ -133,7 +133,7 @@ def assign_xyz_groups(
         y_threshold = 0.0
     else:
         quantiles = eligible_cvs.quantile([0.33, 0.66])
-        # Manual version
+        # Automatic version
         x_threshold = quantiles[0.33]
         y_threshold = quantiles[0.66]
         # Manual version 

@@ -133,7 +133,7 @@ def assign_xyz_groups(
         y_threshold = 0.0
     else:
         quantiles = eligible_cvs.quantile([0.33, 0.66])
-        # Manual version
+        # Automatic version
         x_threshold = quantiles[0.33]
         y_threshold = quantiles[0.66]
         # Manual version 
@@ -324,8 +324,12 @@ def assign_xyz_groups_wide(df: pd.DataFrame) -> pd.DataFrame:
     else:
         # Calculate 33rd and 66th quantiles
         quantiles = eligible_cvs.quantile([0.33, 0.66])
+        # Automatic version
         x_threshold = quantiles[0.33]
         y_threshold = quantiles[0.66]
+        # Manual version 
+        # x_threshold = 0.5
+        # y_threshold = 1
 
         # Fallback 2: Handle edge cases
         if pd.isna(x_threshold) or pd.isna(y_threshold):
