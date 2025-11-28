@@ -218,7 +218,9 @@ flowchart TD
 #### Analysis execution steps
 **ABC groups definition:**
 A - most important SKUs
+
 B - less important SKUs
+
 C - not important SKUs
 
 **Opening data:**
