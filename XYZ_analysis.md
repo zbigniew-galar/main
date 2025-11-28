@@ -60,6 +60,7 @@ Sample standard deviation:
 s = √( Σᵢ₌₁ⁿ (xᵢ − x̄)² / (n − 1) )
 ```
 - **Variance** - a statistical measure of the _spread or dispersion_ of data points in a set relative to their mean (average).
+
 Population variance: 
 ```
 Population variance:
