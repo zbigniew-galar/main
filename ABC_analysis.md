@@ -642,12 +642,12 @@ def assign_abc_groups(df: pd.DataFrame, a_threshold: float = 0.80, b_threshold: 
 
     return result_df
 ```
-9. ABC classification operation:
+9. Execute function for ABC classification operation:
 ``` python
 # ABC classification operation
 df_result = assign_abc_groups(abc_input)
 ```
-10. Save to excel function:
+10. Create save to excel function:
 ``` python
 import os
 
