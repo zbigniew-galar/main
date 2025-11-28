@@ -83,6 +83,25 @@ Sample variance:
 s² = Σᵢ₌₁ⁿ (xᵢ − x̄)² / (n − 1)
 ```
 - **SKU** - Stock Keeping Unit. Alphanumeric symbol for a type of physical good a company uses. Basis for masterdata management.
+### Techniques
+- **Pivoting stock data (B column) from long to wide format by period (A column) per SKU (C column) multiplied by the price (in T column):**
+``` excel
+=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)*$T2
+```
+- **Nested IF function with two conditions with percentiles as thresholds:**
+``` excel
+=IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
+or 
+=IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
+```
+- **Period from Date field:**
+``` excel
+=IF(MONTH(B2)<10;YEAR(B2)&"-0"&MONTH(B2);YEAR(B2)&"-"&MONTH(B2))
+or
+=TEXT(B2;"yyyy-mm")
+// polish version
+=TEKST(B2;"rrrr-mm")
+```
 ### Excel Functions
 - Adds values. You can add individual values, cell references or ranges or a mix of all three:
 ``` excel
@@ -123,25 +142,6 @@ IF(logical_test, value_if_true, [value_if_false])
 - Returns the k-th percentile of values in a range, where k is in the range 0 to 1, inclusive. This function is the new version (from 2010) of PERCENTILE function.
 ``` excel
 PERCENTILE.INC(array,k)
-```
-### Techniques
-- **Pivoting stock data (B column) from long to wide format by period (A column) per SKU (C column) multiplied by the price (in T column):**
-``` excel
-=SUMIFS('Stock history'!$B$2:$B$90000;'Stock history'!$C$2:$C$90000;$A2;'Stock history'!$A$2:$A$90000;B$1)*$T2
-```
-- **Nested IF function with two conditions with percentiles as thresholds:**
-``` excel
-=IF(U2<=2,16;"X";(IF(U2<=2,4;"Y";"Z")))
-or 
-=IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,66);"Y";"Z")))
-```
-- **Period from Date field:**
-``` excel
-=IF(MONTH(B2)<10;YEAR(B2)&"-0"&MONTH(B2);YEAR(B2)&"-"&MONTH(B2))
-or
-=TEXT(B2;"yyyy-mm")
-// polish version
-=TEKST(B2;"rrrr-mm")
 ```
 ### XYZ analysis in Excel
 ### Main formula
