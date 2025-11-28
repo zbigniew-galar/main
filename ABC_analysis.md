@@ -1,6 +1,6 @@
 ### Mindset
 **Make as many mistakes as you can in a shortest amount of time so that you can learn from them. Mistakes and errors are your friend and you can be proud of them.**
-### Shortcuts Hotkeys:
+### Excel Shortcuts Hotkeys:
 |🧩 **Action**|⌨️ **Windows Shortcut**|🍎 **Mac Shortcut**|📝 **Notes**|
 |:--|:--|:--|:--|
 |**Array formula**|`Ctrl + Shift + Enter`|`⌃ + Shift + Return`|Confirms array formulas (older Excel versions).|
@@ -25,6 +25,17 @@
 |**Spread formula or text to multiple lines**|`Alt + Enter`|`⌃ + Option + Return`|Inserts a line break within a cell or formula.|
 |**Two decimal places + thousand separator**|`Ctrl + Shift + !`|`⌘ + Shift + !`|Applies number format with commas and two decimals.|
 |**Undo last action**|`Ctrl + Z`|`⌘ + Z`|Reverts last action.|
+### Python Jupyter Lab Notebook Shortcuts Hotkeys
+- Change the order of sections: **Drag and Drop**
+- Comment or Uncomment section: **Ctrl + /**
+- Hide files section: **Ctrl + B**
+- Indentation: **Tab**
+- Markdown (comment) section: **M**
+- New section above: **A**
+- New section below: **B**
+- Remove section: **X**
+- Reverse indentation: **Shift + Tab**
+- Run section: **Shift + Enter**
 ### Definitions
 **Pareto analysis definition:**
 Pareto analysis sets priorities for action based on the assumption that roughly 80 percent of problems typically result from 20 percent of the possible causes. Thus, not all possible causes of problems are equally important. Pareto analysis identifies the most critical (most frequent) causes of problems so that improvement efforts can be focused where the investment of time, effort, and money will yield the largest return.
