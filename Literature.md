@@ -35,7 +35,7 @@
 - Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
 - Trummer, E. (2025) _Data Analysis with LLMs_. Shelter Island, NY: Manning.
 - Ward, B. (2025) _Azure SQL Revealed: The Next-Generation Cloud Database with AI and Microsoft Fabric_. 2nd ed. New York, NY: Apress.
-**Artificial Intelligence and Business Development literature:**
+
 ``` mermaid
 ---
 config:
@@ -78,7 +78,7 @@ sankey-beta
 - Vásquez M., D. (2024) _Prompt Engineering for Researchers: Transform data into insights: A researcher’s guide to effective prompts_. Self-published.
 - Vishwas, B.V.K. and Macharla, S.R. (2025) _Time Series Forecasting Using Generative AI: Leveraging AI for Precision Forecasting_. New York, NY: Apress.
 - Ward, B. (2025) _Azure SQL Revealed: The Next-Generation Cloud Database with AI and Microsoft Fabric_. 2nd ed. New York, NY: Apress.
-**Artificial Intelligence in Business Analytics and Reporting literature:**
+
 ``` mermaid
 ---
 config:
@@ -125,7 +125,7 @@ sankey-beta
 - Ryan, L. (2023) _Visual Analytics Fundamentals: Creating Compelling Data Narratives with Tableau_. Boston, MA: Addison-Wesley Professional.
 - Sarka, D., Rihar, J. and Vončina, K. (2023) _Advanced Analytics with Power BI and Excel: Learn powerful visualization and data analysis techniques using Microsoft BI tools along with Python and R_. Delhi: Orange Education Pvt Ltd.
 - Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
-**BI Tools in Data Visualization and Business Communication literature:**
+
 ``` mermaid
 ---
 config:
@@ -179,7 +179,7 @@ sankey-beta
 - Sarka, D., Rihar, J. and Vončina, K. (2023) _Advanced Analytics with Power BI and Excel: Learn powerful visualization and data analysis techniques using Microsoft BI tools along with Python and R_. Delhi: Orange Education Pvt Ltd.
 - Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
 - Swink, M., Melnyk, S. and Hartley, J.L. (2024) _Managing Operations Across the Supply Chain_. New York, NY: McGraw Hill.
-**Digital Applications for Business literature:**
+
 ``` mermaid
 ---
 config:
@@ -235,7 +235,7 @@ sankey-beta
 - Vandeput, N. (2021) _Data Science for Supply Chain Forecasting_. 2nd ed. Berlin: De Gruyter.
 - Vishwas, B.V. and Patel, A. (2020) _Hands-on Time Series Analysis with Python: From Basics to Bleeding Edge Techniques_. New York, NY: Apress.
 - Vishwas, B.V.K. and Macharla, S.R. (2025) _Time Series Forecasting Using Generative AI: Leveraging AI for Precision Forecasting_. New York, NY: Apress.
-**Programming for Business Analytics literature:**
+
 ``` mermaid
 ---
 config:
@@ -302,7 +302,7 @@ sankey-beta
 - Ward, B. (2025) _Azure SQL Revealed: The Next-Generation Cloud Database with AI and Microsoft Fabric_. 2nd ed. New York, NY: Apress.
 - West, R. _et al._ (2023) _SQL Server 2022 Administration Inside Out_. Redmond, WA: Microsoft Press.
 - Zacker, C. (2025) _Exam Ref DP-300 Administering Microsoft Azure SQL Solutions_. Hoboken, NJ: Microsoft Press.
-**Programming in Databases literature:**
+
 ``` mermaid
 ---
 config:
@@ -363,7 +363,7 @@ sankey-beta
 - Sarka, D., Rihar, J. and Vončina, K. (2023) _Advanced Analytics with Power BI and Excel: Learn powerful visualization and data analysis techniques using Microsoft BI tools along with Python and R_. Delhi: Orange Education Pvt Ltd.
 - Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
 - Swink, M., Melnyk, S. and Hartley, J.L. (2024) _Managing Operations Across the Supply Chain_. New York, NY: McGraw Hill.
-**Quantitative Data Analysis Methods literature:**
+
 ``` mermaid
 ---
 config:
@@ -423,7 +423,7 @@ sankey-beta
 - Ryan, L. (2023) _Visual Analytics Fundamentals: Creating Compelling Data Narratives with Tableau_. Boston, MA: Addison-Wesley Professional.
 - Sarka, D., Rihar, J. and Vončina, K. (2023) _Advanced Analytics with Power BI and Excel: Learn powerful visualization and data analysis techniques using Microsoft BI tools along with Python and R_. Delhi: Orange Education Pvt Ltd.
 - Stirrup, J. and Weinandy, T.J. (2024) _Artificial Intelligence with Microsoft Power BI: Simpler AI for the Enterprise_. Sebastopol, CA: O’Reilly Media.
-**Reporting and Business Communication literature:**
+
 ``` mermaid
 ---
 config:
@@ -484,7 +484,7 @@ sankey-beta
 - Shu, T. _et al._ (2014) _Managing Risk of Supply Chain Disruptions_. New York, NY: Routledge.
 - Sodhi, M.S. and Tang, C.S. (2012) _Managing Supply Chain Risk_. New York, NY: Springer.
 - Waters, D. (2011) _Supply Chain Risk Management: Vulnerability and Resilience in Logistics_. London: Kogan Page.
-**Risk Management literature:**
+
 ``` mermaid
 ---
 config:
@@ -551,7 +551,7 @@ sankey-beta
 - Pittman, P.H. and Atwater, J.B. (2019) _APICS DICTIONARY: The essential supply chain reference_. 16th ed. Chicago, IL: APICS.
 - Silver, E.A., Pyke, D.F. and Thomas, D.J. (2021) _Inventory and Production Management in Supply Chains_. Boca Raton, FL: CRC Press.
 - Swink, M., Melnyk, S. and Hartley, J.L. (2024) _Managing Operations Across the Supply Chain_. New York, NY: McGraw Hill.
-**Strategic Supply Chain Management literature:**
+
 ``` mermaid
 ---
 config:
