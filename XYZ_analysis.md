@@ -229,6 +229,10 @@ IF(<logical_test>, <value_if_true>[, <value_if_false>])
 ``` excel
 SWITCH(<expression>, <value>, <result>[, <value>, <result>]…[, <else>])
 ```
+- **Converts a value to text according to the specified format.:**
+``` excel
+FORMAT(<value>, <format_string>[, <locale_name>])
+```
 ### XYZ analysis in Excel
 ### Main formula
 
