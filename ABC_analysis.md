@@ -126,15 +126,15 @@ IF(logical_test, value_if_true, [value_if_false])
 =TEXT(Value you want to format, "Format code you want to apply")
 ```
 ### Power BI functions
-- Returns the first expression that does not evaluate to BLANK. If all expressions evaluate to BLANK, BLANK is returned.:
+- **Returns the first expression that does not evaluate to BLANK. If all expressions evaluate to BLANK, BLANK is returned.:**
 ``` excel
 COALESCE(<expression>, <expression>[, <expression>]…)
 ```
-- Returns a related value from another table. When the RELATED function performs a lookup, it examines all values in the specified table regardless of any filters that may have been applied.`RELATED(<Table>[Column])` fetches the _single value_ of `<Column>` from a table that is related to the current table via a model relationship. Conceptually it performs a lookup from the current row (row context) to the related table following the relationship path defined in the data model. It is designed to be used where a one-to-many relationship exists and you are on the **many** side (e.g., `Stock` many → `COGS` one).:
+- **Returns a related value from another table. When the RELATED function performs a lookup, it examines all values in the specified table regardless of any filters that may have been applied.`RELATED(<Table>[Column])` fetches the _single value_ of `<Column>` from a table that is related to the current table via a model relationship. Conceptually it performs a lookup from the current row (row context) to the related table following the relationship path defined in the data model. It is designed to be used where a one-to-many relationship exists and you are on the many side (e.g., `Stock` many → `COGS` one).:**
 ``` excel
 RELATED(<column>)
 ```
-- Returns the value for the row that meets all criteria specified by one or more search conditions. The value of `result_columnName` at the row where all pairs of `search_columnName` and `search_value` have an exact match. If there isn't a match that satisfies all the search values, BLANK or `alternateResult` (if specified) is returned. In other words, the function doesn't return a lookup value if only some of the criteria match. If multiple rows match the search values and the values in the `result_columnName` for these rows are identical, then that value is returned. However, if `result_columnName` returns different values, an error or `alternateResult` (if specified) is returned.
+- **Returns the value for the row that meets all criteria specified by one or more search conditions. The value of `result_columnName` at the row where all pairs of `search_columnName` and `search_value` have an exact match. If there isn't a match that satisfies all the search values, BLANK or `alternateResult` (if specified) is returned. In other words, the function doesn't return a lookup value if only some of the criteria match. If multiple rows match the search values and the values in the `result_columnName` for these rows are identical, then that value is returned. However, if `result_columnName` returns different values, an error or `alternateResult` (if specified) is returned.:**
 
 |Term|Definition|
 |---|---|
@@ -150,6 +150,42 @@ LOOKUPVALUE (
     [, <search2_columnName>, <search2_value>]…
     [, <alternateResult>]
 )
+```
+- **Adds all the numbers in a column.:**
+``` excel
+SUM(<column>)
+```
+- **Returns the sum of an expression evaluated for each row in a table.:**
+``` excel
+SUMX(<table>, <expression>)
+```
+- **Evaluates an expression in a modified filter context.:**
+``` excel
+CALCULATE(<expression>[, <filter1> [, <filter2> [, …]]])
+```
+- **Returns a table that represents a subset of another table or expression.:**
+``` excel
+FILTER(<table>,<filter>)
+```
+- **Stores the result of an expression as a named variable, which can then be passed as an argument to other measure expressions. Once resultant values have been calculated for a variable expression, those values do not change, even if the variable is referenced in another expression.:**
+``` excel
+VAR <name> = <expression>
+```
+- **Returns the ranking of a number in a list of numbers for each row in the `table` argument.:**
+``` excel
+RANKX(<table>, <expression>[, <value>[, <order>[, <ties>]]])
+```
+- **Returns all the rows in a table, or all the values in a column, ignoring any filters that might have been applied. This function is useful for clearing filters and creating calculations on all the rows in a table.:**
+``` excel
+ALL( [<table> | <column>[, <column>[, <column>[,…]]]] )
+```
+- **Performs division and returns alternate result or BLANK() on division by 0.:**
+``` excel
+DIVIDE(<numerator>, <denominator> [,<alternateresult>])
+```
+- **Checks a condition, and returns one value when it's `TRUE`, otherwise it returns a second value.:**
+``` excel
+IF(<logical_test>, <value_if_true>[, <value_if_false>])
 ```
 ### Power Query functions
 - `Csv.Document` function returns the contents of the CSV document as a table.
