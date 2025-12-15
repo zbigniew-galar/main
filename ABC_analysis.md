@@ -187,6 +187,10 @@ DIVIDE(<numerator>, <denominator> [,<alternateresult>])
 ``` excel
 IF(<logical_test>, <value_if_true>[, <value_if_false>])
 ```
+- **Converts a value to text according to the specified format.:**
+``` excel
+FORMAT(<value>, <format_string>[, <locale_name>])
+```
 ### Power Query functions
 - `Csv.Document` function returns the contents of the CSV document as a table.
 ``` excel
