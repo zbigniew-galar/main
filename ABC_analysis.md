@@ -121,6 +121,10 @@ IFERROR(INDEX(Sheet1'!$B$2:$B$200;MATCH(A2;'Sheet1'!$A$2:$A$200;0));"")
 ``` excel
 IF(logical_test, value_if_true, [value_if_false])
 ```
+- **The TEXT function lets you change the way a number appears by applying formatting to it with format codes. It's useful in situations where you want to display numbers in a more readable format, or you want to combine numbers with text or symbols.**
+``` excel
+=TEXT(Value you want to format, "Format code you want to apply")
+```
 ### Power BI functions
 - Returns the first expression that does not evaluate to BLANK. If all expressions evaluate to BLANK, BLANK is returned.:
 ``` excel
