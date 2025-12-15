@@ -103,45 +103,49 @@ or
 =TEKST(B2;"rrrr-mm")
 ```
 ### Excel Functions
-- Adds values. You can add individual values, cell references or ranges or a mix of all three:
+- **Adds values. You can add individual values, cell references or ranges or a mix of all three:**
 ``` excel
 SUM(number1,[number2],...)
 ```
-- Find things in a table or a range by row. Value you want to look up must be in the first column of the range. The column number that contains the return value. Use last value as 0 for exact match:
+- **Find things in a table or a range by row. Value you want to look up must be in the first column of the range. The column number that contains the return value. Use last value as 0 for exact match:**
 ``` excel
 VLOOKUP (lookup_value, table_array, col_index_num, [range_lookup])
 ```
-- Look in one column for a search term and return a result from the same row in another column, regardless of which side the return column is on:
+- **Look in one column for a search term and return a result from the same row in another column, regardless of which side the return column is on:**
 ``` excel
 XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])
 ```
-- Searches for a specified item in a range of cells, and then returns the relative position of that item in the range:
+- **Searches for a specified item in a range of cells, and then returns the relative position of that item in the range:**
 ``` excel
 MATCH(lookup_value, lookup_array, [match_type])
 ```
-- Returns a value or the reference to a value from within a table or range:
+- **Returns a value or the reference to a value from within a table or range:**
 ``` excel
 INDEX(array, row_num, [column_num])
 ```
-- Show a certain value when error like zero `0` or empty cell `""`
+- **Show a certain value when error like zero `0` or empty cell `""`**
 ``` excel
 IFERROR(value, value_if_error)
 ```
-- INDEX with MATCH as improved VLOOKUP (it does what VLOOKUP and more like intersection). Find value from A2 in the column of A up to A200 and show value from the same row but from column B:
+- **INDEX with MATCH as improved VLOOKUP (it does what VLOOKUP and more like intersection). Find value from A2 in the column of A up to A200 and show value from the same row but from column B:**
 ``` excel
 IFERROR(INDEX(Sheet1'!$B$2:$B$200;MATCH(A2;'Sheet1'!$A$2:$A$200;0));"")
 ```
-- Adds all of its arguments that meet multiple criteria. Sum many rows based on intersection of many criteria. Value 1 in column 1, value 2 in column 2 etc.:
+- **Adds all of its arguments that meet multiple criteria. Sum many rows based on intersection of many criteria. Value 1 in column 1, value 2 in column 2 etc.:**
 ``` excel
 SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)
 ```
--  Logical comparisons between a value and what you expect. IF statement can have two results. The first result is if your comparison is True, the second if your comparison is False:
+-  **Logical comparisons between a value and what you expect. IF statement can have two results. The first result is if your comparison is True, the second if your comparison is False:**
 ``` excel
 IF(logical_test, value_if_true, [value_if_false])
 ```
-- Returns the k-th percentile of values in a range, where k is in the range 0 to 1, inclusive. This function is the new version (from 2010) of PERCENTILE function.
+- **Returns the k-th percentile of values in a range, where k is in the range 0 to 1, inclusive. This function is the new version (from 2010) of PERCENTILE function.**
 ``` excel
 PERCENTILE.INC(array,k)
+```
+- **The TEXT function lets you change the way a number appears by applying formatting to it with format codes. It's useful in situations where you want to display numbers in a more readable format, or you want to combine numbers with text or symbols.**
+``` excel
+=TEXT(Value you want to format, "Format code you want to apply")
 ```
 ### XYZ analysis in Excel
 ### Main formula
