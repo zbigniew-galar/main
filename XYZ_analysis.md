@@ -283,6 +283,126 @@ IF(V3<=PERCENTILE.INC($W$3:$W$3881;0,33);"X";(IF(V3<=PERCENTILE.INC($W$3:$W$3881
 ```
 Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Contains
 ```
+### XYZ analysis in Power BI
+#### Main formula
+**XYZ analysis assuming that there are fixed thresholds separating X and Y and Z groups:**
+``` excel
+XYZ = 
+VAR AllPeriods =
+    ALL('Sales'[Period]) 
+    // Ensures we iterate over all available periods in the model, not just those with activity for the SKU
+
+// --- Calculate Average Sales across ALL periods including zero periods ---
+VAR AvgSales =
+    AVERAGEX(
+        AllPeriods,
+        COALESCE(
+            CALCULATE(
+                SUM('Sales'[Sales]),
+                ALLEXCEPT('Sales', 'Sales'[SKU]),  // keep SKU fixed
+                TREATAS(VALUES('Sales'[Period]), 'Sales'[Period]) // ensure period context
+            ),
+            0
+        )
+    )
+
+// --- Calculate Std Dev across ALL periods including zeros ---
+VAR StdDevSales =
+    STDEVX.P(
+        AllPeriods,
+        COALESCE(
+            CALCULATE(
+                SUM('Sales'[Sales]),
+                ALLEXCEPT('Sales', 'Sales'[SKU]),
+                TREATAS(VALUES('Sales'[Period]), 'Sales'[Period])
+            ),
+            0
+        )
+    )
+
+// --- Coefficient of Variation ---
+VAR CoV = DIVIDE(StdDevSales, AvgSales, 0)
+
+// --- Classification ---
+RETURN
+    SWITCH(
+        TRUE(),
+        CoV <= 2.16, "X",
+        CoV <= 2.4, "Y",
+        "Z"
+    )
+
+/*
+--- Explanation ---
+- ALL('Sales'[Period]) iterates over all known periods globally
+- COALESCE wraps the measure to replace blanks with 0 for missing periods
+- ALLEXCEPT('Sales', 'Sales'[SKU]) locks calculation on current SKU
+- TREATAS ensures correct period context during iteration
+- Avg and StdDev now reflect missing periods accurately
+*/
+```
+**More resilient version where fixed thresholds of `2.16` and `2.4` have been replaced with 33rd and 66th percentiles of Coefficient of Variation values:**
+``` excel
+XYZ =
+VAR AllPeriods =
+    ALL('Sales'[Period])
+
+// --- Calculate Average Sales across ALL periods including zero periods ---
+VAR AvgSales =
+    AVERAGEX(
+        AllPeriods,
+        COALESCE(
+            CALCULATE(
+                SUM('Sales'[Sales]),
+                ALLEXCEPT('Sales', 'Sales'[SKU]),
+                TREATAS(VALUES('Sales'[Period]), 'Sales'[Period])
+            ),
+            0
+        )
+    )
+
+// --- Calculate Std Dev across ALL periods including zeros ---
+VAR StdDevSales =
+    STDEVX.P(
+        AllPeriods,
+        COALESCE(
+            CALCULATE(
+                SUM('Sales'[Sales]),
+                ALLEXCEPT('Sales', 'Sales'[SKU]),
+                TREATAS(VALUES('Sales'[Period]), 'Sales'[Period])
+            ),
+            0
+        )
+    )
+
+// --- Coefficient of Variation ---
+VAR CoV =
+    DIVIDE(StdDevSales, AvgSales, 0)
+
+// --- Percentile thresholds across all SKUs ---
+VAR P33 =
+    PERCENTILEX.INC(
+        ALL('Sales'[SKU]),
+        CoV,
+        0.33
+    )
+
+VAR P66 =
+    PERCENTILEX.INC(
+        ALL('Sales'[SKU]),
+        CoV,
+        0.66
+    )
+
+// --- Classification ---
+RETURN
+    SWITCH(
+        TRUE(),
+        CoV <= P33, "X",
+        CoV <= P66, "Y",
+        "Z"
+    )
+```
 ### XYZ analysis in Python
 **Basic code:**
 ``` python
