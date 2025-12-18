@@ -1,5 +1,5 @@
 ## Definitions
-#### Retrieval-Augmented Generation (RAG)
+### Retrieval-Augmented Generation (RAG)
 **Formal Definition** Retrieval-Augmented Generation (RAG) is a technique that optimizes the output of an AI model by referencing an authoritative knowledge base outside its training data before generating a response. Instead of relying solely on what the AI "memorized" during its creation, RAG allows the AI to look up specific, private, or real-time data (like your company's latest policy documents or inventory levels) to answer questions accurately.
 
 **"The Open-Book Exam" analogy:**
@@ -10,7 +10,8 @@
 - **Accuracy & Trust:** significantly reduces "hallucinations" (AI making things up) by grounding answers in your actual business data.
 - **Cost Efficiency:** It is far cheaper than "fine-tuning" (retraining) a model. You don't need to retrain the AI every time your data changes; you just update the documents it reads.
 - **Data Privacy:** It allows you to use a powerful public AI model (like GPT-4) without training your sensitive data _into_ the model. The AI reads your data only when necessary to answer a specific question.
-#### Model Context Protocol (MCP)
+
+### Model Context Protocol (MCP)
 **Formal Definition** The Model Context Protocol (MCP) is an open technical standard that functions as a universal translator between AI models (like Claude, ChatGPT, or Gemini) and external data systems (like company databases, Slack, Google Drive, or CRMs). It standardizes how AI agents discover, access, and use data, eliminating the need for developers to build custom integrations for every specific tool.
 
 **USB-C analogy:**
@@ -21,7 +22,7 @@
 - **Interoperability:** Prevents vendor lock-in by allowing companies to switch AI models without rebuilding their data connections.
 - **Security:** Provides a standardized, controlled layer for managing how AI agents access sensitive enterprise data.
 
-#### AI Agent vs. Standard Model Access (Chatbot)
+### AI Agent vs. Standard Model Access (Chatbot)
 - **Standard Model Access (Chatbot):** A passive, "stateless" interaction where the user inputs a prompt and the AI generates a text response based on its training. The AI outputs information but cannot interact with the outside world or perform actions on its own. It stops working the moment it finishes generating text.
 - **AI Agent:** An autonomous system where the AI model acts as the "brain" or "controller." It is capable of reasoning through a problem, creating a plan, and using external tools (software, browsers, APIs) to execute that plan. It operates in a loop: perceiving, thinking, acting, and checking results until the goal is achieved.
 
@@ -83,6 +84,7 @@ graph TD
     %% Final Synthesis
     B --> F
 ```
+
 ## Links
 ### Graph DB and knowledge graphs
 **Memento MCP: A Knowledge Graph Memory System for LLMs:**
