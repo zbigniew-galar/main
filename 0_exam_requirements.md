@@ -1,6 +1,7 @@
 ### Practice with Gen AI tutor or mentor
 Ask Gen AI models for help if you encounter any difficulties.
 Also, use mentoring and tutoring Excel prompts to make the most of the models if you need very detailed guidance.
+
 **You can find the prompts here:**
 https://github.com/zbigniew-galar/main/blob/main/2_1_tutoring%20prompts.md
 
