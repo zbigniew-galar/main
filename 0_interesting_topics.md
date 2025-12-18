@@ -1,5 +1,6 @@
 ## MESSAGE:
 ## If you are interested in collaborating on any of these projects, please send me an email at my work address.
+Zbigniew Galar, PhD University of Lodz Department of Management
 
 ## Definitions
 ### Retrieval-Augmented Generation (RAG)
