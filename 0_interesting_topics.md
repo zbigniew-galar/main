@@ -1,5 +1,5 @@
 ## MESSAGE:
-## If you are interested in collaborating on any of these projects, please send me an email at my work address.
+## If you are interested in collaborating and learning any of these topics, please send me an email at my work address.
 Zbigniew Galar, PhD University of Lodz Department of Management
 
 ## Definitions
