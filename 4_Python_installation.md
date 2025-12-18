@@ -10,12 +10,12 @@ Select "Add python.exe to PATH".
 ``` 
 setx path "%PATH%;C:\Users\HP\AppData\Local\Programs\Python\Python311\Scripts;"
 ```
-Install [[MS Visual Studio Code]] from:
+Install MS Visual Studio Code from:
 https://code.visualstudio.com/
 
 Create a working directory on the drive.
 
-Lunch [[MS Visual Studio Code]].
+Lunch MS Visual Studio Code.
 
 In "Extensions" install Python.
 
