@@ -1,6 +1,7 @@
 --- WARNING ---
 ### Basics EN
 **How to Interact with Modern sycophant LLM Models:**
+
 Models have one and only one goal: to keep you engaged and convince or trick you into chatting more.
 Their business model is to engage users so that they will eventually pay for the full version, which offers more interaction.
 It is a commercial product, not a friend. 
@@ -19,6 +20,7 @@ https://controlai.news/p/ai-psychosis
 --- OSTRZEŻENIE ---
 ### Basics PL
 **Jak wchodzić w interakcję z nowoczesnymi pochlebczymi modelami LLM:**
+
 Modele mają jeden i tylko jeden cel: utrzymać Cię w zaangażowaniu i przekonać lub nakłonić do częstszego rozmawiania.
 Ich model biznesowy polega na angażowaniu użytkowników, aby ostatecznie zapłacili za pełną wersję, która oferuje więcej interakcji.
 To produkt komercyjny, a nie przyjaciel.
