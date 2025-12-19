@@ -1,3 +1,51 @@
+### Basic Python installation set up
+1. Install Python from: https://www.python.org/downloads/release/python-3113/
+2. Install VS Code from: https://code.visualstudio.com/
+3. Create folders for your data and code files in your main drive for example:
+**Files:**
+C://Python repositories//Education project//src//code
+**Data:**
+C://Python repositories//Education project//src//data
+4. Download the Stock.csv into data folder
+5. Download code files abc.py and xyz.py into code folder
+6. Open VS Code and navigate via File -> Open Folder to your main repository folder: Education project
+7. Open Terminal via Terminal -> New Terminal
+8. In the powershell terminal input command that will create a local environment for Python:
+```
+py -m venv venv
+```
+9. Use the following command to run PowerShell scripts you create yourself, but blocks unsigned scripts downloaded from the internet, and it only affects your user account.
+``` powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+10. Activate newly created environment:
+``` powershell
+.\venv\Scripts\Activate.ps1
+```
+In PowerShell terminal there should be a confirmation of using local environment with (venv) prefix:
+**Example:**
+``` powershell
+(venv) PS C:\Python repositories\Education project> 
+```
+11. Install data processing capabilities:
+``` powershell
+(venv) PS C:\Python repositories\Education project>pip install pandas
+```
+12. Install Excel processing capabilities:
+``` powershell
+(venv) PS C:\Python repositories\Education project>pip install xlsxwriter
+```
+or alternative:
+``` powershell
+(venv) PS C:\Python repositories\Education project>pip install openpyxl
+```
+13. Open and edit lines 134 and 135 in abc.py and line 423 in xyz.py file and change paths to your data files:
+``` python
+# File paths for input CSV files
+file_path1 = "C:\\Python repositories\\Education project\\src\\data\\input\\Stock.csv"
+file_path2 = "C:\\Python repositories\\Education project\\src\\data\\input\\COGS.csv"
+```
+14. Execute abc.py and xyz.py files using the "Play" button above the file "Run Python File".
 ### Python installation
 Install Python downloader from:
 https://www.python.org/downloads/release/python-3113/
