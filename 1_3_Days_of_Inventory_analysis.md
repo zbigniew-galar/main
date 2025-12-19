@@ -220,7 +220,7 @@ Period = FORMAT('Sales'[Date], "yyyy-MM")
 ``` excel
 Sales (Monthly, No Rel) = 
 CALCULATE (
-    SUM ( Sales[Sales] ),
+    SUM ( Sales[Sales_Value] ),
     TREATAS (
         VALUES ( Stock[SKU] ),
         Sales[SKU]
@@ -237,17 +237,17 @@ CALCULATE (
 6. The main formula for the Days of Inventory measure should be applied to the Stock table:
 ``` excel
 Stock Coverage (Days, No Rel) = 
-VAR StockQty =
-    SUM ( Stock[Stock] )
+VAR StockValue =
+    SUM ( Stock[Stock_Value] )
 
-VAR SalesQty =
+VAR SalesValue =
     [Sales (Monthly, No Rel)]
 
 RETURN
 IF (
-    SalesQty <= 0,
+    SalesValue <= 0,
     BLANK(),
-    DIVIDE ( StockQty, SalesQty ) * 30
+    DIVIDE ( StockValue, SalesValue ) * 30
 )
 ```
 ### Days of Inventory calculation using ETL data transformation primitives
