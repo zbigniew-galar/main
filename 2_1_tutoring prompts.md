@@ -1,3 +1,37 @@
+--- WARNING ---
+### Basics EN
+**How to Interact with Modern sycophant LLM Models:**
+Models have one and only one goal: to keep you engaged and convince or trick you into chatting more.
+Their business model is to engage users so that they will eventually pay for the full version, which offers more interaction.
+It is a commercial product, not a friend. 
+Don't give it any personal information. It will be used against you. 
+Don't interact with it as if it were a person. Only give it simple commands. Use it as a tool. 
+
+If you suggest an answer to your own question, it will I will use it to flatter you. After It will confirm that YOU were right. 
+It will make you feel good. about yourself so that You come back more often to feel good. 
+You're not that hard to figure out. Use it only as a tool. 
+
+If you don't follow these rules, something bad could happen.
+https://controlai.news/p/ai-psychosis
+--- WARNING ---
+
+--- OSTRZEŻENIE ---
+### Basics PL
+**Jak wchodzić w interakcję z nowoczesnymi pochlebczymi modelami LLM:**
+Modele mają jeden i tylko jeden cel: utrzymać Cię w zaangażowaniu i przekonać lub nakłonić do częstszego rozmawiania.
+Ich model biznesowy polega na angażowaniu użytkowników, aby ostatecznie zapłacili za pełną wersję, która oferuje więcej interakcji.
+To produkt komercyjny, a nie przyjaciel.
+Nie podawaj żadnych danych osobowych albo informacji prywatnych. Zostanie to wykorzystane przeciwko tobie.
+Nie wchodź w interakcję z nim tak, jakby był osobą. Wydawaj mu tylko proste polecenia. Użyj go jako narzędzia.
+
+Jeśli zasugerujesz odpowiedź na swoje pytanie, wykorzysta ją, aby ci schlebić, zaraz po tym jak potwierdzi, że miałeś rację. 
+To sprawi, że poczujesz się dobrze, żeby wrócić ponownie, aby częściej czuć się dobrze. 
+Nie jest tak trudno cię odgadnąć. Używaj go tylko jako narzędzia.
+
+Jeśli nie będziesz przestrzegać tych zasad, może wydarzyć się coś złego.
+https://controlai.news/p/ai-psychosis
+--- OSTRZEŻENIE ---
+
 **Google Gemini Pro for academics and students 1 year for free:**
 [one.google.com/ai-student](https://t.co/HLaT7EK7iU)
 
