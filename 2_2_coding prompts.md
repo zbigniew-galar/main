@@ -9,11 +9,14 @@ Don't give it any personal information. It will be used against you.
 Don't interact with it as if it were a person. Only give it simple commands. Use it as a tool. 
 
 If you suggest an answer to your own question, it will I will use it to flatter you. After It will confirm that YOU were right. 
-It will make you feel good. about yourself so that You come back more often to feel good. 
+It will make you feel good about yourself so that You come back more often to feel good. 
 You're not that hard to figure out. Use it only as a tool. 
 
 If you don't follow these rules, something bad could happen.
 https://controlai.news/p/ai-psychosis
+
+More information about the sycophancy problem:
+https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
 
 --- WARNING ---
 
@@ -33,6 +36,9 @@ Nie jest tak trudno cię odgadnąć. Używaj go tylko jako narzędzia.
 
 Jeśli nie będziesz przestrzegać tych zasad, może wydarzyć się coś złego.
 https://controlai.news/p/ai-psychosis
+
+Więcej informacji o problemie schlebiania:
+https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
 
 --- OSTRZEŻENIE ---
 
