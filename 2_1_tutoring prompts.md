@@ -13,6 +13,7 @@ You're not that hard to figure out. Use it only as a tool.
 
 If you don't follow these rules, something bad could happen.
 https://controlai.news/p/ai-psychosis
+
 --- WARNING ---
 
 --- OSTRZEŻENIE ---
@@ -30,6 +31,7 @@ Nie jest tak trudno cię odgadnąć. Używaj go tylko jako narzędzia.
 
 Jeśli nie będziesz przestrzegać tych zasad, może wydarzyć się coś złego.
 https://controlai.news/p/ai-psychosis
+
 --- OSTRZEŻENIE ---
 
 **Google Gemini Pro for academics and students 1 year for free:**
