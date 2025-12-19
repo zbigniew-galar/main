@@ -15,6 +15,9 @@ You're not that hard to figure out. Use it only as a tool.
 If you don't follow these rules, something bad could happen.
 https://controlai.news/p/ai-psychosis
 
+More information about the sycophancy problem:
+https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
+
 --- WARNING ---
 
 --- OSTRZEŻENIE ---
@@ -33,6 +36,9 @@ Nie jest tak trudno cię odgadnąć. Używaj go tylko jako narzędzia.
 
 Jeśli nie będziesz przestrzegać tych zasad, może wydarzyć się coś złego.
 https://controlai.news/p/ai-psychosis
+
+Więcej informacji o problemie schlebiania:
+https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
 
 --- OSTRZEŻENIE ---
 
