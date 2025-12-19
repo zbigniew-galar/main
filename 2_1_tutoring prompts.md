@@ -9,7 +9,7 @@ Don't give it any personal information. It will be used against you.
 Don't interact with it as if it were a person. Only give it simple commands. Use it as a tool. 
 
 If you suggest an answer to your own question, it will I will use it to flatter you. After It will confirm that YOU were right. 
-It will make you feel good. about yourself so that You come back more often to feel good. 
+It will make you feel good about yourself so that You come back more often to feel good. 
 You're not that hard to figure out. Use it only as a tool. 
 
 If you don't follow these rules, something bad could happen.
