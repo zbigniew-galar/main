@@ -51,9 +51,9 @@ Excel -> Home -> Conditional Formatting -> Highlight Cell Rules -> Text that Con
 ```
 ### XYZ Analysis execution steps
 **XYZ groups definition:**
-X - stable SKUs
-Y - less stable SKUs
-Z - not stable SKUs
+- X - stable SKUs
+- Y - less stable SKUs
+- Z - not stable SKUs
 
 **Opening data:**
 Double-click it or use File > Open in Excel. If Unicode characters don't display correctly, import it via Excel's Data tab > Get Data > From Text/CSV.
