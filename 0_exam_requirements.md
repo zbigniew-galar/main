@@ -7,9 +7,9 @@ https://github.com/zbigniew-galar/main/blob/main/2_1_tutoring%20prompts.md
 
 ### ABC Analysis execution steps
 **ABC groups definition:**
-A - most important SKUs
-B - less important SKUs
-C - not important SKUs
+- A - most important SKUs
+- B - less important SKUs
+- C - not important SKUs
 
 **Opening data:**
 Double-click it or use File > Open in Excel. If Unicode characters don't display correctly, import it via Excel's Data tab > Get Data > From Text/CSV.
