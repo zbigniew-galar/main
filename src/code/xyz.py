@@ -438,7 +438,8 @@ stock = pd.read_csv(file_path, sep=';')
 stock['Stock'] = stock['Stock'].str.replace(',', '.').astype(float)
 
 # Change Date column to datetime format
-stock['Date'] = pd.to_datetime(stock['Date'])
+# REFRACTORED: Added dayfirst=True to correctly parse DD.MM.YYYY format
+stock['Date'] = pd.to_datetime(stock['Date'], dayfirst=True)
 
 # Create a string Period column from Date
 # New column
