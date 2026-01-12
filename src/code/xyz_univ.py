@@ -439,7 +439,8 @@ xyz_table = pd.read_csv(file_path, sep=';')
 xyz_table[value_field] = xyz_table[value_field].str.replace(',', '.').astype(float)
 
 # Change Date column to datetime format
-xyz_table['Date'] = pd.to_datetime(xyz_table['Date'])
+# REFRACTORED: Added dayfirst=True to correctly parse DD.MM.YYYY format
+xyz_table['Date'] = pd.to_datetime(xyz_table['Date'], dayfirst=True)
 
 # Create a string Period column from Date
 # New column
