@@ -439,8 +439,8 @@ xyz_table = pd.read_csv(file_path, sep=';')
 xyz_table[value_field] = xyz_table[value_field].str.replace(',', '.').astype(float)
 
 # Change Date column to datetime format
-# REFRACTORED: Added dayfirst=True to correctly parse DD.MM.YYYY format
-xyz_table['Date'] = pd.to_datetime(xyz_table['Date'], dayfirst=True)
+# REFRACTORED: Added dayfirst=False to correctly parse DD.MM.YYYY format
+xyz_table['Date'] = pd.to_datetime(xyz_table['Date'], dayfirst=False)
 
 # Create a string Period column from Date
 # New column
@@ -471,3 +471,4 @@ df_wide_result = assign_xyz_groups_wide(xyz_input)
 # Save output file
 save_file(df_result, "xyz_"+value_field)
 save_file(df_wide_result, "xyz_wide_"+value_field)
+
