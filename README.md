@@ -1,2 +1,2 @@
 Zbigniew Galar, PhD University of Lodz Department of Management
-zbigniew.galar@proton.me
+zbigniew.galar@wz.uni.lodz.pl
