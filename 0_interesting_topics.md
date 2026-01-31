@@ -1,5 +1,8 @@
 ## MESSAGE:
 ## If you are interested in collaborating and learning any of these topics, please send me an email at my work address.
+
+zbigniew.galar@wz.uni.lodz.pl
+
 Zbigniew Galar, PhD University of Lodz Department of Management
 
 ## Definitions
