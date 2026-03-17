@@ -42,8 +42,8 @@ https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-
 
 --- OSTRZEŻENIE ---
 
-**Google Gemini Pro for academics and students 1 year for free:**
-[one.google.com/ai-student](https://t.co/HLaT7EK7iU)
+**Prompt optimizer for chatGPT:**
+https://platform.openai.com/chat/edit?models=gpt-5&optimize=true
 
 **NotebookLM summary agent:**
 https://notebooklm.google/
