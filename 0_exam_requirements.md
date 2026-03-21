@@ -15,6 +15,7 @@ You should be proficient at using Power Query and Data Analysis Expressions (DAX
 
 #### Option 2 BUS250
 ##### BUS250: Introduction to Business Intelligence and Analytics
+https://learn.saylor.org/course/view.php?id=869
 
 This course focuses on how information systems that store, collect, and manage data can be paired with analytic techniques to provide organizational decision-makers with information and insights that allow them to make more effective decisions. The ultimate aim of any decision-making process is to produce more efficient and effective organizational operations that enable a company to gain a competitive advantage.
 
