@@ -1,3 +1,17 @@
+## Business Intelligence reporting and communication
+#### Microsoft Certified: Power BI Data Analyst Associate
+https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification
+
+As a candidate for this certification, you should deliver actionable insights by working with available data and applying domain expertise. You should:
+- Provide meaningful business value through easy-to-comprehend data visualizations.
+- Enable others to perform self-service analytics.
+As a Power BI data analyst, you work closely with business stakeholders to identify business requirements. You collaborate with analytics engineers and data engineers to identify and acquire data. You use Power BI to:
+- Prepare the data
+- Model the data
+- Visualize and analyze data
+- Manage and secure Power BI
+You should be proficient at using Power Query and Data Analysis Expressions (DAX).
+
 ## Project Management class
 #### Option 1: BUS402
 ##### BUS402: Introduction to Project Management
