@@ -1,5 +1,6 @@
 ## Business Intelligence reporting and communication
-#### Microsoft Certified: Power BI Data Analyst Associate
+#### Option 1 Microsoft Certified
+##### Microsoft Certified: Power BI Data Analyst Associate
 https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification
 
 As a candidate for this certification, you should deliver actionable insights by working with available data and applying domain expertise. You should:
@@ -11,6 +12,19 @@ As a Power BI data analyst, you work closely with business stakeholders to ident
 - Visualize and analyze data
 - Manage and secure Power BI
 You should be proficient at using Power Query and Data Analysis Expressions (DAX).
+
+#### Option 2 BUS250
+##### BUS250: Introduction to Business Intelligence and Analytics
+
+This course focuses on how information systems that store, collect, and manage data can be paired with analytic techniques to provide organizational decision-makers with information and insights that allow them to make more effective decisions. The ultimate aim of any decision-making process is to produce more efficient and effective organizational operations that enable a company to gain a competitive advantage.
+
+With the advent of automated transaction processing systems, a large amount of data is created and stored as a result of organizational operations. When coupled with external data on customers, economic indicators, customer preferences, and even text-based social media, this data can be used to feed analytic models. This big data can be stored in data warehouses, extracted and organized with systems like data mining, and incorporated into data governance and quality management systems.
+
+Sometimes, data can be interpreted directly based on how it is presented. Data visualization and dashboards can present data to decision-makers in useful formats like graphs, heat maps, tree maps, charts, word clouds, text tables, and sentiment analysis.
+
+Often, raw data does not provide the decision-maker with sufficient insight, no matter how well presented. Data are used to populate models for more complex analysis to provide the decision-maker with additional insight. Models represent reality that the decision-maker can interact with through forecasting and scenario analysis. We cover many analytic approaches, including predictive analytics, prescriptive analytics, diagnostic analytics, and cluster analysis. Continuous refinement and optimization of analytical models based on feedback and evolving business requirements is important.
+
+Finally, the course examines the legal structures affecting data privacy, protection, and security. We look at laws and industry-specific regulations, the ethical principles underlying them, and the importance of adhering to these laws and regulations. We also discuss how to support privacy, including ways to anonymize and pseudonymize information, and consider ethical best practices in the context of organizational policies.
 
 ## Project Management class
 #### Option 1: BUS402
