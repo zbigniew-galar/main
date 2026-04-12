@@ -18,6 +18,9 @@ https://controlai.news/p/ai-psychosis
 More information about the sycophancy problem:
 https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
 
+Explanation video:
+https://youtu.be/POtESzTaz0k
+
 --- WARNING ---
 
 --- OSTRZEŻENIE ---
@@ -39,6 +42,9 @@ https://controlai.news/p/ai-psychosis
 
 Więcej informacji o problemie schlebiania:
 https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models
+
+Video tłumaczące problem:
+https://youtu.be/POtESzTaz0k
 
 --- OSTRZEŻENIE ---
 
