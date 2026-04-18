@@ -253,3 +253,6 @@ Date,StoreID,SalesAmount
 5. **Observe Repeating Values:** Note that `SalesAmount` displays the exact identical grand total (7900) for every manager. Attempting to filter a fact table using a dimension table lacking a relationship forces the engine to display repeating grand totals. Do not attempt to alter visual settings to fix this.
 6. **Resolve Root Cause:** Return to the **Model** view. Drag `StoreID` from `Dim_Store_Status` to `StoreID` in `Fact_DailySales` to establish the required relationship .
 7. **Verify Correction:** Return to the **Report** view. The Table visual now accurately filters and distributes the sales amounts to the correct store managers.
+
+**Author:**
+Zbigniew Galar
