@@ -57,8 +57,8 @@ TransactionID,Vendor,Quantity,TransDate
 2. **Adjust Profiling Behavior:** Look at the status bar in the lower-left corner of the Power Query Editor window. Click the text that says **Column profiling based on top 1000 rows** and change it to **Column profiling based on entire data set** . This ensures all errors are detected in large datasets .
 3. **Diagnose the Error:** Click into the empty whitespace of a cell displaying the word _Error_ in the `Quantity` column. The error message, such as `DataFormat.Error: Invalid cell value`, will appear in a yellow band at the bottom of the screen . Do not click the hyperlinked word _Error_, as this adds an unnecessary navigation step.
 4. **Isolate Error Rows:** Right-click the Data Quality peek bar (the colored line directly under the `Quantity` column header) to open the error-specific contextual menu. Select **Keep Errors** . A new applied step named "Kept Errors" is created, and the query now exclusively displays the problematic rows .
+5. **Clear Isolation:** Delete the "Kept Errors" step from the Applied Steps pane by clicking the red **X** next to it .
+6. **Replace Errors:** Right-click the `Quantity` column header and select **Replace Errors** . Enter `0` in the dialogue box and click **OK**. Repeat this process for the `TransDate` column, replacing the error with a null or default date value.
 
 **Author:**
 Zbigniew Galar
-5. **Clear Isolation:** Delete the "Kept Errors" step from the Applied Steps pane by clicking the red **X** next to it .
-6. **Replace Errors:** Right-click the `Quantity` column header and select **Replace Errors** . Enter `0` in the dialogue box and click **OK**. Repeat this process for the `TransDate` column, replacing the error with a null or default date value.
