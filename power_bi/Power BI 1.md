@@ -119,3 +119,6 @@ EmployeeID,Name,Department,Role
 7. **Verify the Fix:**
     - The yellow error banner should disappear, and the Power Query Editor will display your data preview again.
     - Click **Close & Apply** to finalize the updated connection string.
+
+**Author:**
+Zbigniew Galar
