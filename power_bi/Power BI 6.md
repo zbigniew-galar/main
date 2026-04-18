@@ -133,3 +133,6 @@ Date,StoreName,DailyVisitors
     `Visitor Deviation = STDEV.P(Store_Traffic[DailyVisitors])` .
 5. **Analyze Statistical Variance:** Switch to the Report view. Add a Card visual for each of the three measures.
 6. **Interpret Results:** Observe the disparity between the `Average Visitors` and `Median Visitors`. The single extreme outlier (900 visitors on 10-04) significantly skews the average upwards, while the median remains anchored to the typical daily volume. The `Visitor Deviation` outputs a high value, mathematically confirming extreme volatility within the dataset.
+
+**Author:**
+Zbigniew Galar
