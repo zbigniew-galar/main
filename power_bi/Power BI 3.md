@@ -125,3 +125,6 @@ StudentID,ClassID
 5. **Configure Cardinality:** Verify both relationships are One-to-Many (`1:*`), flowing outward from the Dimension tables into the Bridge table.
 6. **Configure Cross-Filtering:** Double-click the relationship between `Dim_Class` and `Bridge_StudentClass`. Set **Cross-filter direction** to `Both`.
 7. **Verify Resolution:** Switch to Report view. Create a Matrix visual with `ClassName` on Rows and `StudentName` on Values. The bridge table correctly maps students to classes without creating an unsupported native many-to-many relationship.
+
+**Author:**
+Zbigniew Galar
