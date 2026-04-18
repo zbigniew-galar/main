@@ -196,3 +196,6 @@ StoreID,State,PostalCode,StoreFrontImage
 4. **Categorize Postal Code:** Select the `PostalCode` column. Change its **Data category** to _Postal code_. A globe icon will appear next to both geographic fields.
 5. **Categorize Image URL:** Select the `StoreFrontImage` column. Change its **Data category** to _Image URL_. When placed in a visual, this setting forces Power BI to fetch and render the actual image file rather than displaying the raw hyperlink text .
 6. **Verify Q&A Integration:** Switch to the **Report** view. Double-click the canvas to spawn a Q&A visual. Type `where are the stores`. The Q&A engine successfully maps the "where" interrogative directly to your newly categorized geographic columns to generate a spatial response.
+
+**Author:**
+Zbigniew Galar
