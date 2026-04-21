@@ -39,6 +39,16 @@ A completed report open in Power BI Desktop and active Office 365 credentials.
 1. **Select Artifact:** In the workspace, locate a verified Report, Dataset, Dataflow, or App .
 2. **Access Settings:** Click the **Ellipsis (...)** next to the artifact and open its Settings.
 3. **Apply Promotion:** Locate the Endorsement section and select **Promoted**. (Note: The _Certified_ tag requires specific administrative enablement and adherence to internal organizational governance policies; it cannot be applied arbitrarily by standard users ).
+### Exercise 6: Sensitivity Classification and Content Subscriptions
+**Objective:** Apply organizational data classification protocols and configure automated snapshot deliveries via subscriptions .
+#### Prerequisites
+Microsoft 365 sensitivity labels must be globally enabled by the tenant administrator.
+#### Step-by-Step Instructions
+1. **Apply Desktop Classification:** Open the target file in Power BI Desktop. Navigate to the **Home** ribbon. Click the **Sensitivity** dropdown button .
+2. **Assign Label:** Select the required data tier (e.g., _Highly Confidential_) from the available list .
+3. **Publish and Verify:** Publish the report to the designated workspace. Open the workspace in the Power BI Service and check the artifact list. The assigned label strictly displays in the **Sensitivity** column next to both the report and its underlying dataset .
+4. **Initiate Subscription:** Open the published report or dashboard. Click **Subscribe** in the top action ribbon .
+5. **Define Delivery Parameters:** Configure the destination email addresses, subject line, and the precise execution schedule (e.g., daily after dataset refresh) to automate content distribution. Click **Save and close**.
 
 **Author:**
 Zbigniew Galar
