@@ -1,4 +1,4 @@
-# Clean and Transform the Data
+# Clean and Transform the Data basics
 ### Exercise 1: Splitting Columns and Replacing Values
 **Objective:** Practice foundational data shaping techniques, including accessing the Power Query Editor, splitting columns, renaming applied steps, and properly handling null values.
 #### Data Input
