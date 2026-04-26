@@ -2,11 +2,11 @@ import os
 import pandas as pd
 import warnings
 from datetime import datetime
+import models  # Import the module to allow dynamic function access
 
 # Import modular components
 from database_manager import create_tables, save_to_sql
 from data_ingestion import process_excel
-import models
 from backtesting_hub import run_backtest_for_sku
 from evaluation import get_best_model
 from accuracy_report import run_all_reports
@@ -20,7 +20,7 @@ FORECAST_HORIZON = 24        # Months to forecast into the future
 INPUT_FILE = "Sales.xlsx"    # Your source data file
 # --------------------------------
 
-# Silence mathematical noise for a clean terminal output
+# Silence mathematical noise
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -46,8 +46,8 @@ def run_pipeline(file_name):
 
     # 3. Descriptive Analytics & Segmentation
     print(f"--- [3/6] Running Sales Analytics & Animal Segmentation ---")
-    run_analytics()      # Generates Lags, Rolling Stats, and Outlier reports
-    run_segmentation()   # Assigns Horses, Mad Bulls, Turtles, and Rabbits
+    run_analytics()
+    run_segmentation()
 
     # 4. Backtesting & Model Selection
     all_backtest_details = []
@@ -57,12 +57,12 @@ def run_pipeline(file_name):
     unique_skus = df_monthly['sku'].unique()
     execution_date = datetime.now().date()
     
-    print(f"--- [4/6] Backtesting & Selecting Best Models (Metric: {SELECTION_METRIC}) ---")
+    print(f"--- [4/6] Backtesting {len(unique_skus)} SKUs with All Models ---")
     
     for sku in unique_skus:
         sku_data = df_monthly[df_monthly['sku'] == sku].sort_values('date')
         
-        # Run the dynamic backtesting hub
+        # Run the dynamic backtesting hub (detects all 'run_' functions)
         details, summary = run_backtest_for_sku(sku_data, BACKTEST_MONTHS, SELECTION_METRIC)
         
         if not details or not summary:
@@ -70,35 +70,39 @@ def run_pipeline(file_name):
             
         # Identify the winner for this SKU
         best_model_info = get_best_model(summary, SELECTION_METRIC)
-        winner_name = best_model_info['model_name']
+        winner_display_name = best_model_info['model_name']
         
-        # Mark the winner in the performance summary
+        # Convert display name back to function name: 'Ses Alpha 0 1' -> 'run_ses_alpha_0_1'
+        winner_func_name = "run_" + winner_display_name.lower().replace(" ", "_")
+        
+        # Mark the winner in the performance summary for SQL
         for item in summary:
-            item['is_best'] = 1 if item['model_name'] == winner_name else 0
+            item['is_best'] = 1 if item['model_name'] == winner_display_name else 0
             all_model_performance.append(item)
         
         all_backtest_details.extend(details)
 
-        # 5. Production Forecast: Run winner on full dataset
+        # 5. Production Forecast: DYNAMICALLY call the winning function
         try:
             last_date = pd.to_datetime(sku_data['date'].max())
             forecast_dates = pd.date_range(start=last_date, periods=FORECAST_HORIZON + 1, freq='MS')[1:]
             
-            series = sku_data['sales_volume']
-            if "Smoothing" in winner_name:
-                preds = run_ses_forecast(series, months=FORECAST_HORIZON)
-            else:
-                preds = run_moving_average(series, months=FORECAST_HORIZON)
+            # Fetch the actual function from the models module by its string name
+            winning_func = getattr(models, winner_func_name)
+            
+            # Execute the specific winner (SES or MA with specific parameters)
+            preds = winning_func(sku_data['sales_volume'], months=FORECAST_HORIZON)
                 
             for d, val in zip(forecast_dates, preds):
                 final_forecast_output.append({
                     'sku': sku,
                     'forecast_date': d.strftime('%Y-%m-%d'),
                     'predicted_value': round(float(val), 2),
-                    'model_name': winner_name,
+                    'model_name': winner_display_name,
                     'execution_date': execution_date
                 })
-        except Exception:
+        except Exception as e:
+            print(f"Error forecasting SKU {sku} with {winner_func_name}: {e}")
             continue
 
     # 6. Finalizing SQL & Exporting Reports
@@ -114,7 +118,7 @@ def run_pipeline(file_name):
     run_all_reports()
 
     print(f"\nPipeline Execution Successful.")
-    print(f"Processed {len(unique_skus)} SKUs. All outputs saved in 'src/output_data/'.")
+    print(f"Check 'src/output_data/' for results.")
 
 if __name__ == "__main__":
     run_pipeline(INPUT_FILE)
