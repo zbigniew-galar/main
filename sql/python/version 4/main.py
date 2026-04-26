@@ -6,7 +6,7 @@ from datetime import datetime
 # Import modular components
 from database_manager import create_tables, save_to_sql
 from data_ingestion import process_excel
-from models import run_ses_forecast, run_moving_average, run_moving_average_6, run_moving_average_9, run_moving_average_12
+import models
 from backtesting_hub import run_backtest_for_sku
 from evaluation import get_best_model
 from accuracy_report import run_all_reports
