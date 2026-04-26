@@ -1,25 +1,11 @@
 from statsmodels.tsa.holtwinters import SimpleExpSmoothing
-import pandas as pd
-import numpy as np
 
-# --- 1. BACKWARD COMPATIBLE MODELS (Standard Names) ---
+# --- 1. PARAMETERIZED MOVING AVERAGES ---
 
-def run_ses_forecast(series, months=24):
-    """
-    Standard SES where alpha is automatically optimized by statsmodels.
-    """
-    model = SimpleExpSmoothing(series, initialization_method="estimated").fit()
-    return model.forecast(months)
-
-def run_moving_average(series, window=3, months=24):
-    """
-    Standard 3-Month Moving Average.
-    """
+def run_moving_average_3(series, window=3, months=24):
+    """3-Month Moving Average."""
     last_ma = series.tail(window).mean()
     return [last_ma] * months
-
-
-# --- 2. PARAMETERIZED MOVING AVERAGES ---
 
 def run_moving_average_6(series, window=6, months=24):
     """6-Month Moving Average."""
@@ -37,7 +23,14 @@ def run_moving_average_12(series, window=12, months=24):
     return [last_ma] * months
 
 
-# --- 3. PARAMETERIZED SES (ALPHA SWEEPING) ---
+# --- 2. PARAMETERIZED SES (ALPHA SWEEPING) ---
+
+def run_ses_forecast(series, months=24):
+    """
+    Standard SES where alpha is automatically optimized by statsmodels.
+    """
+    model = SimpleExpSmoothing(series, initialization_method="estimated").fit()
+    return model.forecast(months)
 
 def run_ses_alpha_0_1(series, months=24):
     """SES with Alpha = 0.1 (Extremely smooth/stable)."""
