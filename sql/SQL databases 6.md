@@ -1,7 +1,8 @@
 ## Taxi big data project with PostgreSQL Database
 #### Data source
 https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-
+#### Database server
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 ### VS Code installation
 #### Python library installation
 We use `psycopg2-binary` for local development because it's easier to install on Windows than the standard version.
