@@ -16,6 +16,9 @@ src -> input_data -> Salex.xlsx
 # Creating and activating environment
 >>> py -m venv venv
 >>> venv\Scripts\activate.bat
+# Troubleshooting
+>>> .\venv\Scripts\Activate.ps1
+>>> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
 **Upgrading libraries installation engine and installing libraries:**
 ``` powershell
