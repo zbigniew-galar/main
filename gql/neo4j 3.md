@@ -739,7 +739,6 @@ RETURN coActors.name
 MATCH path= (:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors)
 RETURN path
 ```
-![[movie_db_tom_hanks_co_actors.png]]
 **Find all persons related to the movie Cloud Atlas by any relationship:**
 ``` cypher
 MATCH (p:Person)-[relationship]-(:Movie {title: "Cloud Atlas"})
