@@ -77,3 +77,51 @@ Justification: [Exactly one paragraph]
 **Apex/Critical:** Fundamental to agentic control, including alignment, deterministic output validation, and fail-safes against systemic hallucinations.
 
 **Justification:** Unmediated client prompting bypasses alignment protocols, risking catastrophic output drift. The PM acts as a necessary architectural fail-safe, sanitizing volatile human ambiguity into deterministic constraints to secure system alignment and prevent unchecked resource depletion.
+
+**Statement: "Formułowanie KPI będzie krytyczną umiejętnością, czyli przekładanie celu projektu na mierzalne wskaźniki postępu."**
+
+**Score: 5** 
+
+**Apex/Critical:** Fundamental to agentic control, including alignment, deterministic output validation, and fail-safes against systemic hallucinations.
+
+**Justification:** Translating goals into quantifiable metrics shifts from guiding human intent to programming rigid reward functions. This deterministic alignment directly mitigates unbounded execution risk, guaranteeing maximum system velocity toward verified operational outcomes.
+
+**Statement: "Projekty oparty o agentów powinny być podobne do siebie i krótkie, bo buduje to największą i najszybciej bazę doświadczenia, co pozwala przewidywać potrzeby klienta nawet nie zwerbalizowane."**
+
+**Score: 4** 
+
+**Amplified:** Importance scales exponentially due to agent execution speed; precision in dependency mapping and constraints is paramount.
+
+**Justification:** High-frequency project execution shifts from gradual human retrospective learning to rapid algorithmic context caching. Enforcing short, standardized execution loops exponentially accelerates system scale velocity, reducing long-term project failure risk through immediate, compounded predictive accuracy.
+
+**Statement: "Rozdzielenie intencji czyli celu projektu od sposobu wykonania, który może się różnić w zależności od kontekstu."**
+
+**Score: 4** 
+
+**Amplified:** Importance scales exponentially due to agent execution speed; precision in dependency mapping and constraints is paramount.
+
+**Justification:** Decoupling rigid objectives from fluid execution paths shifts planning from human sequential drafting to autonomous algorithmic routing. Removing human cognitive bottlenecks in procedural planning exponentially accelerates execution velocity, demanding extreme precision in initial objective constraints to prevent failure.
+
+**Statement: "Nowe ryzyka ujawnienia informacji poufnych oraz robienia rzeczy nielegalnych lub niepotrzebnych oprócz projektu."**
+
+**Score: 5** 
+
+**Apex/Critical:** Fundamental to agentic control, including alignment, deterministic output validation, and fail-safes against systemic hallucinations.
+
+**Justification:** Mitigating data breaches and illegal operations shifts from human policy compliance to hardcoded boundary enforcement. Implementing deterministic fail-safes is strictly mandatory to eliminate catastrophic alignment risk, preventing high-velocity autonomous agents from executing destructive actions beyond project scope.
+
+**Statement: "Nowe testy potwierdzające deterministycznie, czy pewne elementy zlecone zostały wykonane."**
+
+**Score: 5** 
+
+**Apex/Critical:** Fundamental to agentic control, including alignment, deterministic output validation, and fail-safes against systemic hallucinations.
+
+**Justification:** Validating deliverables shifts from subjective human status updates to continuous, automated programmatic state checks. Deterministic output validation eliminates trust-based risk entirely, guaranteeing accurate dependency resolution and enabling uninterrupted high-velocity resource scaling.
+
+**Statement: "KPI może być więcej ze względu na to że agenci nie odczuwają frustracji z dodatkową biurokracją i nadzorowaniem ich pracy."**
+
+**Score: 3** 
+
+**Translated:** Core logic remains; execution medium shifts (e.g., human shift scheduling translates to API rate and compute load management).
+
+**Justification:** Expanding KPI tracking shifts from a friction-inducing human psychological burden to computationally bounded telemetry processing. Eliminating biological constraints allows infinite telemetry ingestion, transforming traditional bureaucracy into continuous, frictionless system optimization that maximizes resource velocity.
