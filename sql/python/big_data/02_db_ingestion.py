@@ -9,7 +9,7 @@ local_path = "C:\\Python repositories\\Taxi DB project\\src\\input_data\\yellow_
 
 # --- SQL Configuration ---
 # Replace 'password123' with the password you set during PostgreSQL installation
-DB_URI = "postgresql://postgres:password123@localhost:5432/taxi_project"
+DB_URI = "postgresql://postgres:password123@localhost:5432/taxi_small_project"
 engine = create_engine(DB_URI)
 
 # =================================================================
