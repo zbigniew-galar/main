@@ -1,4 +1,7 @@
 # Definitions
+**Practice:**
+https://www.w3schools.com/sql/sql_select.asp
+
 **Operators:**
 ``` sql
 "=, !=, < <=, >, >="
