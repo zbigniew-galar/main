@@ -107,13 +107,11 @@ Relationships created: 44997
 ``` cypher
 CALL db.schema.visualization()
 ```
-![[employees_db.png]]
 **Output check:**
 ``` cypher
 MATCH (e:Employee)-[r]->(target)
 RETURN e, r, target LIMIT 50
 ```
-![[employees_db_check.png]]
 #### Basic analysis
 **Number of Nodes by type:**
 ``` cypher
