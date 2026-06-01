@@ -63,6 +63,55 @@ A _database_ is a shared collection of related data used to support the activi
 ##### Effective vs Efficient Systems
 - **Effective** systems provide correct, current information that is relevant to the decision at hand. Ahituv and Neumann (1986) refer to effectiveness as "doing the right thing".
 - **Efficient** systems, on the other hand, perform a task in a cost-effective manner. A database system must provide the required information at a reasonable cost. Ahituv and Neumann call this "doing the thing right".
+#### Core Architecture
+
+|**Feature**|**PostgreSQL**|**SQLite**|**DuckDB**|
+|---|---|---|---|
+|**Paradigm**|Client-Server|Embedded|Embedded|
+|**Storage Model**|Row-oriented|Row-oriented|Columnar|
+|**Execution Engine**|Row-by-row (Iterator)|Row-by-row (Iterator)|Vectorized (Batch)|
+|**Workload Optimization**|OLTP & HTAP|OLTP|OLAP|
+|**Concurrency**|Full MVCC, concurrent writers|Single-writer, multi-reader|Single-writer, multi-reader|
+|**Data Types**|Strict typing|Dynamic typing|Strict typing|
+#### PostgreSQL
+##### Pros
+- **High Concurrency:** Full MVCC handles massive parallel read/write workloads without locking the entire database.
+- **Ecosystem:** Over 1,000 extensions (e.g., PostGIS for spatial data, pgvector for AI embeddings).
+- **Data Integrity:** Enforces strict schemas, constraints, and custom data types.
+- **Scalability:** Supports multi-terabyte databases across distributed clusters.
+##### Cons
+- **Overhead:** Requires a dedicated server process, configuration, daemon management, and network connections.
+- **Analytical Inefficiency:** Row-oriented storage reads unnecessary columns during aggregate scans, bottlenecking OLAP performance.
+#### SQLite
+##### Pros
+- **Zero Configuration:** Runs entirely in-process as a single C library dependency. No server to configure.
+- **Portability:** The entire database is a single `.db` file, making it easily transferable.
+- **Point-Query Speed:** Sub-millisecond latency for single-row lookups and inserts on local hardware.
+##### Cons
+- **Concurrency Bottlenecks:** Write operations lock the entire database (or use WAL for single-writer/multi-reader limits).
+- **Dynamic Typing:** Allows inserting text into integer columns, requiring strict application-level validation.
+- **OLAP Performance:** Sequential row processing degrades exponentially on large dataset aggregations.
+#### DuckDB
+##### Pros
+- **Analytical Speed:** Columnar storage and vectorized execution yield 10x–50x faster aggregations and joins than SQLite.
+- **Direct Ingestion:** Executes queries directly against raw Parquet, CSV, and JSON files without prior loading.
+- **Out-of-Core Processing:** Gracefully handles larger-than-memory datasets by spilling to disk efficiently.
+##### Cons
+- **Transactional Limitations:** Extremely poor performance for frequent, single-row updates and inserts.
+- **Process Isolation:** A database file can only be opened in write mode by a single process at a time. Multiple read-only connections are permitted only if no write connection exists.
+#### Decisive Selection Heuristics
+##### Select PostgreSQL when
+- You require multi-user concurrent write access.
+- You are building a web application, SaaS backend, or production API.
+- You need advanced extensions (geospatial routing, vector search).
+##### Select SQLite when
+- You are building a mobile application, desktop software, or IoT device requiring local state persistence.
+- You are storing application configurations or offline data sync queues.
+- The workload is strictly single-tenant with fast, frequent point reads/writes.
+##### Select DuckDB when
+- You are performing data science workflows, BI dashboards, or exploratory data analysis in Python/R.
+- You need to run complex aggregations (OLAP) on datasets ranging from millions to billions of rows.
+- You are querying static data lakes composed of Parquet or CSV files.
 
 **Author:**
 Zbigniew Galar
